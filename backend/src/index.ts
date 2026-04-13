@@ -17,7 +17,7 @@ const httpServer = createServer(app);
 export const wsManager = new WebSocketManager(httpServer);
 setIO(wsManager.getIO());
 
-const PORT = process.env.PORT || 8070;
+const PORT = process.env.PORT || 8090;
 const HOST = process.env.BACKEND_URL_HOST || "localhost";
 
 async function startServer() {
@@ -28,26 +28,35 @@ async function startServer() {
 
     // --- M-Pesa environment readiness summary ---
     const stkReady = [
-      'MPESA_CONSUMER_KEY',
-      'MPESA_CONSUMER_SECRET',
-      'MPESA_SHORTCODE',
-      'MPESA_PASSKEY',
-      'MPESA_CALLBACK_URL_BASE'
-    ].every(k => !!process.env[k]);
+      "MPESA_CONSUMER_KEY",
+      "MPESA_CONSUMER_SECRET",
+      "MPESA_SHORTCODE",
+      "MPESA_PASSKEY",
+      "MPESA_CALLBACK_URL_BASE",
+    ].every((k) => !!process.env[k]);
     const b2cInitiator = !!process.env.MPESA_B2C_INITIATOR;
     const b2cCredential = !!process.env.MPESA_B2C_CREDENTIAL;
     const b2cReady = b2cInitiator && b2cCredential;
-    console.log('[startup] MPESA_STK_READY=', stkReady, 'MPESA_B2C_READY=', b2cReady);
+    console.log(
+      "[startup] MPESA_STK_READY=",
+      stkReady,
+      "MPESA_B2C_READY=",
+      b2cReady,
+    );
     if (!stkReady) {
-      console.warn('[startup][warn] STK not fully configured – missing one of required vars');
+      console.warn(
+        "[startup][warn] STK not fully configured – missing one of required vars",
+      );
     }
     if (!b2cReady) {
-      console.warn('[startup][warn] B2C refunds disabled (set MPESA_B2C_INITIATOR & MPESA_B2C_CREDENTIAL)');
+      console.warn(
+        "[startup][warn] B2C refunds disabled (set MPESA_B2C_INITIATOR & MPESA_B2C_CREDENTIAL)",
+      );
     }
 
     // Warm/verify email (non-fatal)
     ensureEmailReady().catch((e) =>
-      console.warn("[startup] Email readiness check failed", e)
+      console.warn("[startup] Email readiness check failed", e),
     );
 
     httpServer.listen(PORT, () => {
