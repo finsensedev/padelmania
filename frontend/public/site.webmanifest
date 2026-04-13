@@ -1,0 +1,22 @@
+{
+  "name": "Tudor Padel",
+  "short_name": "TudorPadel",
+  "description": "Book padel courts, coaching sessions, and events at Tudor Padel in Tudor, Mombasa.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "en-KE",
+  "icons": [
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/vite.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

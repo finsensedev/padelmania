@@ -1,0 +1,31 @@
+# Backup Configuration (contains sensitive credentials)
+.env.backup
+
+# Backup files
+*.dump
+*.dump.gz
+*.dump.gz.enc
+*.sql
+*.sql.gz
+*.sql.enc
+
+# Checksums
+*.sha256
+*.md5
+
+# Temporary files
+temp/
+*.tmp
+
+# Log files (too large for git)
+logs/
+*.log
+
+# Cloud credentials
+.rclone.conf
+gcloud-key.json
+azure-credentials.json
+
+# Test databases
+*_test.dump
+*_test.sql
