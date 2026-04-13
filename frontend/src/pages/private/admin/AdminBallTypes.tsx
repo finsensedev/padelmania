@@ -147,33 +147,33 @@ function AdminBallTypes() {
   );
 
   // Update stock mutation
-  const updateStockMutation = useMutation(
-    async ({
-      id,
-      totalQuantity,
-      availableQty,
-    }: {
-      id: string;
-      totalQuantity: number;
-      availableQty: number;
-    }) => {
-      return api.patch(`/admin/ball-types/${id}/stock`, {
-        totalQuantity,
-        availableQty,
-      });
-    },
-    {
-      onSuccess: () => {
-        toaster("Stock updated successfully", { variant: "success" });
-        queryClient.invalidateQueries(["admin-ball-types"]);
-      },
-      onError: (error: any) => {
-        toaster(error?.response?.data?.message || "Failed to update stock", {
-          variant: "error",
-        });
-      },
-    },
-  );
+  // const updateStockMutation = useMutation(
+  //   async ({
+  //     id,
+  //     totalQuantity,
+  //     availableQty,
+  //   }: {
+  //     id: string;
+  //     totalQuantity: number;
+  //     availableQty: number;
+  //   }) => {
+  //     return api.patch(`/admin/ball-types/${id}/stock`, {
+  //       totalQuantity,
+  //       availableQty,
+  //     });
+  //   },
+  //   {
+  //     onSuccess: () => {
+  //       toaster("Stock updated successfully", { variant: "success" });
+  //       queryClient.invalidateQueries(["admin-ball-types"]);
+  //     },
+  //     onError: (error: any) => {
+  //       toaster(error?.response?.data?.message || "Failed to update stock", {
+  //         variant: "error",
+  //       });
+  //     },
+  //   },
+  // );
 
   const resetForm = () => {
     setNewBallType({

@@ -49,7 +49,7 @@ function CustomerSidebar() {
 
   // Check if mobile with debounced resize handler
   useEffect(() => {
-    let timeoutId = 0;
+    let timeoutId: NodeJS.Timeout;
 
     const checkMobile = () => {
       const mobile = window.innerWidth < 768;
