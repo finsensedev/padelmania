@@ -258,7 +258,7 @@ export const TermsContent = ({
           </p>
           <p className="leading-tight">📧 Email: support@padelmania.com</p>
           <p className="leading-tight">📞 Phone: +254 113 666 444</p>
-          <p className="leading-tight">📍 Address: Mombasa, Kenya</p>
+          <p className="leading-tight">📍 Address: Nairobi, Kenya</p>
         </div>
       </div>
     </div>

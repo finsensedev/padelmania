@@ -487,7 +487,7 @@ export class PaymentController {
           isMultipleCourts,
           courtDetails,
           manageUrl: `${
-            process.env.APP_URL || "https://tudorpadel.com"
+            process.env.APP_URL || "https://padelmania.co.ke"
           }/customer/bookings/${firstBooking.id}`,
         });
         await sendMail({
@@ -2080,7 +2080,7 @@ export class PaymentController {
             timeRange,
             reason: customerReason,
             refundedAmount: toRefund,
-            manageUrl: process.env.APP_URL || "https://tudorpadel.com/account",
+            manageUrl: process.env.APP_URL || "https://padelmania.co.ke/account",
           });
 
           // Send email to customer

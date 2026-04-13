@@ -624,7 +624,7 @@ export class AuthController {
             userId: user.id,
             points: registrationPoints,
             type: "BONUS",
-            description: "Registration bonus - Welcome to Tudor Padel",
+            description: "Registration bonus - Welcome to Padel Mania",
             expiresAt: addMonths(new Date(), 6),
           },
         }),

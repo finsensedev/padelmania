@@ -26,7 +26,7 @@ const optionalEnvVars = [
 ];
 
 async function checkConfiguration() {
-  console.log("🔍 Tudor Padel Backend Configuration Check\n");
+  console.log("🔍 Padel Mania Backend Configuration Check\n");
   console.log("=" .repeat(60));
 
   // 1. Check Required Environment Variables

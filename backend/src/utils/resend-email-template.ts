@@ -60,7 +60,7 @@ export function buildResendVerificationEmail(
                   <td style="background-color: hsl(240, 4.8%, 95.9%); padding: 40px 30px; text-align: center; border-top: 1px solid hsl(240, 5.9%, 90%);">
                     <p style="color: hsl(240, 3.8%, 46.1%); font-size: 12px; margin: 0 0 12px 0; line-height: 1.5; font-family: 'Inter', sans-serif;">
                       © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
-                      <span style="color: hsl(268, 68%, 45%); font-weight: 600;">Mombasa, Kenya</span> | 
+                      <span style="color: hsl(268, 68%, 45%); font-weight: 600;">Nairobi, Kenya</span> | 
                       <a href="mailto:support@padelmania.co.ke" style="color: hsl(268, 68%, 45%); text-decoration: none;">support@padelmania.co.ke</a> | 
                       <span style="color: hsl(268, 68%, 45%); font-weight: 600;">+254 113 666 444</span>
                     </p>

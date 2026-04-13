@@ -642,7 +642,7 @@ export class CourtController {
                 reason: "Court maintenance scheduled",
                 refundedAmount: refundAmount,
                 manageUrl:
-                  process.env.APP_URL || "https://tudorpadel.com/account",
+                  process.env.APP_URL || "https://padelmania.co.ke/account",
               });
 
               await sendMail({
@@ -1331,7 +1331,7 @@ export class CourtController {
                 reason: "Court maintenance scheduled",
                 refundedAmount: refundAmount,
                 manageUrl:
-                  process.env.APP_URL || "https://tudorpadel.com/account",
+                  process.env.APP_URL || "https://padelmania.co.ke/account",
               });
 
               await sendMail({

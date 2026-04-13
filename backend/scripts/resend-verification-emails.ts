@@ -37,7 +37,7 @@ const isDryRun = !shouldExecute; // Dry run by default unless --execute is passe
 const limitArg = args.find((arg) => arg.startsWith("--limit="));
 const limit = limitArg ? parseInt(limitArg.split("=")[1], 10) : undefined;
 
-const APP_URL = process.env.APP_URL || "https://tudorpadel.com";
+const APP_URL = process.env.APP_URL || "https://padelmania.co.ke";
 const VERIFICATION_TOKEN_EXPIRY_MINUTES = 30; // 30 minutes
 
 interface EmailResult {
@@ -184,7 +184,7 @@ async function main() {
           to: user.email,
           subject,
           html,
-          fromName: "Tudor Padel",
+          fromName: "Padel Mania",
         });
 
         console.log(`  ↳ ✅ Verification email sent successfully`);

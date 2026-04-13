@@ -68,7 +68,7 @@ router.use(ballTypeRoutes); // Public ball types endpoint
 // API info
 router.get("/", (req, res) => {
   res.json({
-    name: "Tudor Padel API",
+    name: "Padel Mania API",
     version: "1.0.0",
     status: "active",
     timestamp: new Date().toISOString(),

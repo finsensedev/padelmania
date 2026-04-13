@@ -342,7 +342,7 @@ function TermsAndConditions() {
                           <p className="text-sm sm:text-base leading-relaxed">
                             <strong>Company:</strong> Padel Mania Limited
                             <br />
-                            <strong>Address:</strong> Mombasa, Kenya
+                            <strong>Address:</strong> Nairobi, Kenya
                             <br />
                             <strong>Email:</strong> privacy@padelmania.com
                             <br />
@@ -503,7 +503,7 @@ function TermsAndConditions() {
                             <strong>Phone:</strong> +254 113 666 444
                           </p>
                           <p>
-                            <strong>Address:</strong> Mombasa, Kenya
+                            <strong>Address:</strong> Nairobi, Kenya
                           </p>
                         </div>
                       </div>

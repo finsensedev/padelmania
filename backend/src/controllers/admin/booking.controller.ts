@@ -1408,14 +1408,14 @@ export class BookingController {
 
           const subject = `💳 Credit Added to Your Account • ${exists.bookingCode}`;
           const buttonUrl =
-            process.env.APP_URL || "https://tudorpadel.com/account";
+            process.env.APP_URL || "https://padelmania.co.ke/account";
 
           const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Account Credit - Tudor Padel</title>
+  <title>Account Credit - Padel Mania</title>
   <style>
     body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background-color: #f3f4f6; }
     .email-container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -1435,7 +1435,7 @@ export class BookingController {
     </div>
     <div class="content">
       <p>Hi ${exists.user.firstName || "there"},</p>
-      <p>Good news! We've added credit to your Tudor Padel account for your booking.</p>
+      <p>Good news! We've added credit to your Padel Mania account for your booking.</p>
       
       <div style="background: #f9fafb; border-left: 4px solid #10b981; padding: 16px; margin: 20px 0;">
         <p style="margin: 0 0 8px 0; font-weight: 600; color: #111827;">Booking Details:</p>
@@ -1469,11 +1469,11 @@ export class BookingController {
       </div>
 
       <p style="margin-top: 24px; color: #6b7280; font-size: 14px;">
-        Have questions? Contact us anytime at Tudor Padel.
+        Have questions? Contact us anytime at Padel Mania.
       </p>
     </div>
     <div class="footer">
-      <p>© ${new Date().getFullYear()} Tudor Padel. All rights reserved.</p>
+      <p>© ${new Date().getFullYear()} Padel Mania. All rights reserved.</p>
       <p style="margin: 8px 0;">Powered by <a href="https://www.finsense.co.ke/" style="color: #10b981; text-decoration: none; font-weight: 600;">FinSense Africa ❤️</a></p>
     </div>
   </div>

@@ -863,7 +863,7 @@ export class MpesaService {
 
     const phone = this.normalizePhone(req.phoneNumber);
 
-    const accountRef = req.accountReference || req.bookingId || "TUDORPADEL";
+    const accountRef = req.accountReference || req.bookingId || "PADELMANIA";
     const description = req.description || "Padel court booking";
 
     let paymentId: string | undefined;
@@ -1912,7 +1912,7 @@ export class MpesaService {
               giftCardAmount,
               giftCardCode,
               manageUrl: `${
-                process.env.APP_URL || "https://tudorpadel.com"
+                process.env.APP_URL || "https://padelmania.co.ke"
               }/customer/bookings/${confirmed.id}`,
             });
             sendMail({
@@ -2249,7 +2249,7 @@ export class MpesaService {
               giftCardAmount,
               giftCardCode,
               manageUrl: `${
-                process.env.APP_URL || "https://tudorpadel.com"
+                process.env.APP_URL || "https://padelmania.co.ke"
               }/customer/bookings/${firstBooking.id}`,
               isMultipleCourts: createdBookings.length > 1,
               courtDetails:
@@ -2446,7 +2446,7 @@ export class MpesaService {
                     giftCardAmount,
                     giftCardCode,
                     manageUrl: `${
-                      process.env.APP_URL || "https://tudorpadel.com"
+                      process.env.APP_URL || "https://padelmania.co.ke"
                     }/customer/bookings/${created.id}`,
                   });
                   sendMail({

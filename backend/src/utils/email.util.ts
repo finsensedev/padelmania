@@ -48,7 +48,7 @@ export async function sendShopOrderConfirmationEmail(order: ShopOrderWithDetails
   try {
     await sendMail({
       to: order.user.email,
-      subject: `Order Confirmation #${order.orderNumber} - Tudor Padel Shop`,
+      subject: `Order Confirmation #${order.orderNumber} - Padel Mania Shop`,
       html: emailHtml,
     });
     console.log(`✅ Shop order confirmation email sent to ${order.user.email}`);
@@ -219,7 +219,7 @@ function buildShopOrderConfirmationEmail(order: ShopOrderWithDetails): string {
                   </table>
                   <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #e5e7eb; text-align: center;">
                     <p style="margin: 0; color: #6b7280; font-size: 14px;">
-                      ✨ Items will be available for pickup at Tudor Padel
+                      ✨ Items will be available for pickup at Padel Mania
                     </p>
                     <p style="margin: 8px 0 0 0; color: #6b7280; font-size: 14px;">
                       📧 Questions? Reply to this email or visit our shop
@@ -235,7 +235,7 @@ function buildShopOrderConfirmationEmail(order: ShopOrderWithDetails): string {
               <tr>
                 <td style="text-align: center; padding: 0 20px;">
                   <p style="margin: 0; color: #9ca3af; font-size: 14px;">
-                    © ${new Date().getFullYear()} Tudor Padel. All rights reserved.
+                    © ${new Date().getFullYear()} Padel Mania. All rights reserved.
                   </p>
                   <p style="margin: 8px 0 0 0; color: #9ca3af; font-size: 12px;">
                     This email was sent because you made a purchase on our platform.
@@ -369,7 +369,7 @@ export async function sendLowStockAlert(
 
                   <p style="margin: 30px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
                     Best regards,<br>
-                    <strong>Tudor Padel Inventory System</strong>
+                    <strong>Padel Mania Inventory System</strong>
                   </p>
 
                 </td>
@@ -379,7 +379,7 @@ export async function sendLowStockAlert(
               <tr>
                 <td style="background-color: #f9fafb; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
                   <p style="margin: 0; color: #6b7280; font-size: 14px;">
-                    Tudor Padel Shop - Inventory Management
+                    Padel Mania Shop - Inventory Management
                   </p>
                   <p style="margin: 8px 0 0 0; color: #9ca3af; font-size: 12px;">
                     This is an automated alert from your inventory management system.

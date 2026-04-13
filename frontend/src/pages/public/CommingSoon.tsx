@@ -67,7 +67,7 @@ function CommingSoon() {
             <div className="flex items-center gap-3 mb-6">
               <span className="w-8 h-px bg-primary" />
               <span className="text-primary text-xs sm:text-sm font-black uppercase tracking-[0.2em]">
-                Now Open · Tudor, Mombasa
+                Now Open · Nairobi
               </span>
             </div>
 
@@ -136,7 +136,7 @@ function CommingSoon() {
             { value: "2", label: "Premium Courts" },
             { value: "100%", label: "Glass Walls" },
             { value: "LED", label: "Pro Lighting" },
-            { value: "Tudor", label: "Mombasa" },
+            { value: "Nairobi", label: "Nairobi" },
           ].map((stat, i) => (
             <div
               key={i}
@@ -391,7 +391,7 @@ function CommingSoon() {
                 <span className="text-foreground/30">Play With Us</span>
               </h2>
               <p className="text-foreground/50 text-sm sm:text-base leading-relaxed mb-8">
-                We're located in the heart of Tudor, Mombasa. Easy to reach,
+                We're located in the heart of Nairobi. Easy to reach,
                 impossible to forget once you've played here.
               </p>
               <div className="space-y-4 mb-10">
@@ -399,7 +399,7 @@ function CommingSoon() {
                   {
                     icon: "",
                     label: "Location",
-                    value: "Tudor, Mombasa, Kenya",
+                    value: "Nairobi, Kenya",
                   },
                   { icon: "", label: "Phone", value: "+254 000 000 000" },
                   { icon: "", label: "Instagram", value: "@padelmania" },

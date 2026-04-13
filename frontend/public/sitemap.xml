@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://tudorpadel.com/</loc>
+        <loc>https://padelmania.co.ke/</loc>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
-        <loc>https://tudorpadel.com/login</loc>
+        <loc>https://padelmania.co.ke/login</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://tudorpadel.com/register</loc>
+        <loc>https://padelmania.co.ke/register</loc>
         <priority>0.8</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://tudorpadel.com/verify-email</loc>
+        <loc>https://padelmania.co.ke/verify-email</loc>
         <priority>0.6</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://tudorpadel.com/forgot-password</loc>
+        <loc>https://padelmania.co.ke/forgot-password</loc>
         <priority>0.5</priority>
         <changefreq>monthly</changefreq>
     </url>
     <url>
-        <loc>https://tudorpadel.com/reset-password</loc>
+        <loc>https://padelmania.co.ke/reset-password</loc>
         <priority>0.5</priority>
         <changefreq>monthly</changefreq>
     </url>

@@ -1,21 +1,21 @@
 import crypto from "crypto";
 
 export function generateBookingCode(): string {
-  const prefix = "TPB"; // Tudor Padel Booking
+  const prefix = "TPB"; // Padel Mania Booking
   const timestamp = Date.now().toString(36).toUpperCase();
   const random = crypto.randomBytes(2).toString("hex").toUpperCase();
   return `${prefix}-${timestamp}-${random}`;
 }
 
 export function generateOrderNumber(): string {
-  const prefix = "TPO"; // Tudor Padel Order
+  const prefix = "TPO"; // Padel Mania Order
   const timestamp = Date.now().toString(36).toUpperCase();
   const random = crypto.randomBytes(2).toString("hex").toUpperCase();
   return `${prefix}-${timestamp}-${random}`;
 }
 
 export function generateRentalCode(): string {
-  const prefix = "TPR"; // Tudor Padel Rental
+  const prefix = "TPR"; // Padel Mania Rental
   const timestamp = Date.now().toString(36).toUpperCase();
   const random = crypto.randomBytes(2).toString("hex").toUpperCase();
   return `${prefix}-${timestamp}-${random}`;

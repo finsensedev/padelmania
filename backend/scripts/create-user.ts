@@ -107,7 +107,7 @@ async function main() {
     const role = selectedRole || UserRole.SUPER_ADMIN;
     
     const totpIssuer = await ask("TOTP issuer", {
-      defaultValue: "Tudor Padel",
+      defaultValue: "Padel Mania",
     });
     const totpSecretRaw = await ask("2FA secret (Base32, optional)");
     const totpSecret = totpSecretRaw ? totpSecretRaw : undefined;

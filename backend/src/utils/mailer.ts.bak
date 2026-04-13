@@ -113,14 +113,14 @@ export async function sendMail(options: SendMailOptions) {
         .trim();
 
     const finalHeaders = {
-      "X-Mailer": "Tudor Padel System",
+      "X-Mailer": "Padel Mania System",
       "X-Priority": "3",
       ...(headers || {}),
     } as Record<string, string>;
 
     console.log(`� [mailer] Sending → to=${to} subject="${subject}"`);
     const info = await transporter.sendMail({
-      from: `${fromName || "Tudor Padel"} <${fromAddr}>`,
+      from: `${fromName || "Padel Mania"} <${fromAddr}>`,
       to,
       subject,
       html,
@@ -456,9 +456,9 @@ export function buildRefundNotificationEmail(params: {
           <tr>
             <td bgcolor="#f9fafb" class="dark-accent-bg dark-border" style="background-color: #f9fafb; padding: 40px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 12px; margin: 0 0 16px 0; line-height: 1.5; font-family: Arial, Helvetica, sans-serif;">
-                © ${new Date().getFullYear()} Tudor Padel. All rights reserved.<br>
-                <span style="color: #22734b; font-weight: bold;">Mombasa, Kenya</span> | 
-                <a href="mailto:support@tudorpadel.com" style="color: #22734b; text-decoration: none;">support@tudorpadel.com</a> | 
+                © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
+                <span style="color: #22734b; font-weight: bold;">Nairobi, Kenya</span> | 
+                <a href="mailto:support@padelmania.co.ke" style="color: #22734b; text-decoration: none;">support@padelmania.co.ke</a> | 
                 <span style="color: #22734b; font-weight: bold;">+254 113 666 444</span>
               </p>
               <p class="dark-text-secondary" style="color: #9ca3af; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">
@@ -483,7 +483,7 @@ export function buildRefundNotificationEmail(params: {
 
 export function buildWelcomeEmail(firstName: string) {
   return {
-    subject: "🎉 Welcome to Tudor Padel - Your Account is Ready!",
+    subject: "🎉 Welcome to Padel Mania - Your Account is Ready!",
     html: `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -493,7 +493,7 @@ export function buildWelcomeEmail(firstName: string) {
   <meta name="x-apple-disable-message-reformatting">
   <meta name="color-scheme" content="light dark">
   <meta name="supported-color-schemes" content="light dark">
-  <title>Welcome to Tudor Padel</title>
+  <title>Welcome to Padel Mania</title>
   <!--[if mso]>
   <noscript>
     <xml>
@@ -558,14 +558,14 @@ export function buildWelcomeEmail(firstName: string) {
               </table>
               
               <h1 style="color: #ffffff; font-size: 32px; font-weight: bold; margin: 0; font-family: Arial, Helvetica, sans-serif;">Account Verified Successfully!</h1>
-              <p style="color: #ffffff; font-size: 18px; margin: 8px 0 0 0; font-weight: normal; font-family: Arial, Helvetica, sans-serif;">Welcome to Tudor Padel</p>
+              <p style="color: #ffffff; font-size: 18px; margin: 8px 0 0 0; font-weight: normal; font-family: Arial, Helvetica, sans-serif;">Welcome to Padel Mania</p>
             </td>
           </tr>
           
           <!-- Content -->
           <tr>
             <td class="mobile-padding dark-text" style="padding: 50px 40px; text-align: center;">
-              <h2 class="dark-text" style="color: #111827; font-size: 28px; font-weight: bold; margin: 0 0 24px 0; font-family: Arial, Helvetica, sans-serif;">Welcome to Tudor Padel, ${firstName}! 🎉</h2>
+              <h2 class="dark-text" style="color: #111827; font-size: 28px; font-weight: bold; margin: 0 0 24px 0; font-family: Arial, Helvetica, sans-serif;">Welcome to Padel Mania, ${firstName}! 🎉</h2>
               
               <p class="dark-text-secondary mobile-font" style="color: #6b7280; font-size: 18px; line-height: 1.6; margin: 0 0 32px 0; font-family: Arial, Helvetica, sans-serif;">
                 Your email has been successfully verified and your account is now active. You're all set to start your padel journey with us!
@@ -602,9 +602,9 @@ export function buildWelcomeEmail(firstName: string) {
           <tr>
             <td bgcolor="#f9fafb" class="dark-accent-bg dark-border" style="background-color: #f9fafb; padding: 40px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 12px; margin: 0 0 16px 0; line-height: 1.5; font-family: Arial, Helvetica, sans-serif;">
-                © ${new Date().getFullYear()} Tudor Padel. All rights reserved.<br>
-                <span style="color: #22734b; font-weight: bold;">Mombasa, Kenya</span> | 
-                <a href="mailto:support@tudorpadel.com" style="color: #22734b; text-decoration: none;">support@tudorpadel.com</a> | 
+                © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
+                <span style="color: #22734b; font-weight: bold;">Nairobi, Kenya</span> | 
+                <a href="mailto:support@padelmania.co.ke" style="color: #22734b; text-decoration: none;">support@padelmania.co.ke</a> | 
                 <span style="color: #22734b; font-weight: bold;">+254 113 666 444</span>
               </p>
               <p class="dark-text-secondary" style="color: #9ca3af; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">
@@ -672,7 +672,7 @@ export function buildBookingConfirmationEmail(params: {
 
   const subject = `🎾 Booking Confirmed • ${bookingCode}`;
   const buttonUrl =
-    manageUrl || process.env.APP_URL || "https://tudorpadel.com";
+    manageUrl || process.env.APP_URL || "https://padelmania.co.ke";
 
   const html = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -814,12 +814,12 @@ export function buildBookingConfirmationEmail(params: {
               <p class="dark-text-secondary" style="margin:0 0 14px;color:#374151;font-size:13px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">Please arrive 10 minutes before your start time to warm up and check in with staff. Remember to bring appropriate footwear and stay hydrated.</p>
               <p class="dark-text-secondary" style="margin:0 0 26px;color:#6b7280;font-size:12px;font-family:Arial,Helvetica,sans-serif;">If you need to make changes, you can manage your booking via the button above.</p>
               <p class="dark-text" style="margin:0;color:#111827;font-size:14px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">See you soon! 👋</p>
-              <p style="margin:6px 0 0;color:#22734b;font-size:13px;font-family:Arial,Helvetica,sans-serif;">Tudor Padel Team</p>
+              <p style="margin:6px 0 0;color:#22734b;font-size:13px;font-family:Arial,Helvetica,sans-serif;">Padel Mania Team</p>
             </td>
           </tr>
           <tr>
             <td class="dark-accent-bg dark-border" style="background:#f9fafb;padding:28px 30px;text-align:center;border-top:1px solid #e5e7eb;">
-              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Tudor Padel. Mombasa, Kenya • <a href="mailto:support@tudorpadel.com" style="color:#22734b;text-decoration:none;">support@tudorpadel.com</a></p>
+              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. Nairobi, Kenya • <a href="mailto:support@padelmania.co.ke" style="color:#22734b;text-decoration:none;">support@padelmania.co.ke</a></p>
               <p class="dark-text-secondary" style="margin:0;color:#9ca3af;font-size:10px;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
             </td>
           </tr>
@@ -840,7 +840,7 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
   const greeting = firstName ? `Hi ${firstName}` : "Hello";
 
   return {
-    subject: "🎾 Welcome to Tudor Padel - Verify Your Account",
+    subject: "🎾 Welcome to Padel Mania - Verify Your Account",
     html: `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -850,7 +850,7 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
   <meta name="x-apple-disable-message-reformatting">
   <meta name="color-scheme" content="light dark">
   <meta name="supported-color-schemes" content="light dark">
-  <title>Verify Your Tudor Padel Account</title>
+  <title>Verify Your Padel Mania Account</title>
   <!--[if mso]>
   <noscript>
     <xml>
@@ -897,8 +897,8 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
           <!-- Header -->
           <tr>
             <td bgcolor="#22734b" style="background-color: #22734b; padding: 50px 30px; text-align: center; border-radius: 12px 12px 0 0;">
-              <h1 style="color: #ffffff; font-size: 32px; font-weight: bold; margin: 0; font-family: Arial, Helvetica, sans-serif;">Tudor Padel</h1>
-              <p style="color: #ffffff; font-size: 18px; margin: 8px 0 0 0; font-weight: normal; font-family: Arial, Helvetica, sans-serif;">Join Tudor Padel today</p>
+              <h1 style="color: #ffffff; font-size: 32px; font-weight: bold; margin: 0; font-family: Arial, Helvetica, sans-serif;">Padel Mania</h1>
+              <p style="color: #ffffff; font-size: 18px; margin: 8px 0 0 0; font-weight: normal; font-family: Arial, Helvetica, sans-serif;">Join Padel Mania today</p>
             </td>
           </tr>
           
@@ -909,7 +909,7 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 18px; line-height: 1.6; margin: 0 0 24px 0; text-align: center; font-family: Arial, Helvetica, sans-serif;">${greeting},</p>
               
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 16px; line-height: 1.6; margin: 0 0 32px 0; text-align: center; font-family: Arial, Helvetica, sans-serif;">
-                Thank you for joining Tudor Padel! We're excited to have you as part of our padel community. To complete your registration and start booking courts, please verify your email address.
+                Thank you for joining Padel Mania! We're excited to have you as part of our padel community. To complete your registration and start booking courts, please verify your email address.
               </p>
               
               <!-- CTA Button -->
@@ -968,17 +968,17 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
           <tr>
             <td bgcolor="#f9fafb" class="dark-accent-bg dark-border" style="background-color: #f9fafb; padding: 40px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 14px; margin: 0 0 20px 0; line-height: 1.6; font-family: Arial, Helvetica, sans-serif;">
-                If you didn't create an account with Tudor Padel, please ignore this email or 
-                <a href="mailto:support@tudorpadel.com" style="color: #22734b; text-decoration: none; font-weight: bold;">contact our support team</a>.
+                If you didn't create an account with Padel Mania, please ignore this email or 
+                <a href="mailto:support@padelmania.co.ke" style="color: #22734b; text-decoration: none; font-weight: bold;">contact our support team</a>.
               </p>
               
               <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="dark-border" style="border-top: 1px solid #e5e7eb; margin-top: 24px; padding-top: 24px; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                 <tr>
                   <td>
                     <p class="dark-text-secondary" style="color: #6b7280; font-size: 12px; margin: 0 0 12px 0; line-height: 1.5; font-family: Arial, Helvetica, sans-serif;">
-                      © ${new Date().getFullYear()} Tudor Padel. All rights reserved.<br>
-                      <span style="color: #22734b; font-weight: bold;">Mombasa, Kenya</span> | 
-                      <a href="mailto:support@tudorpadel.com" style="color: #22734b; text-decoration: none;">support@tudorpadel.com</a> | 
+                      © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
+                      <span style="color: #22734b; font-weight: bold;">Nairobi, Kenya</span> | 
+                      <a href="mailto:support@padelmania.co.ke" style="color: #22734b; text-decoration: none;">support@padelmania.co.ke</a> | 
                       <span style="color: #22734b; font-weight: bold;">+254 113 666 444</span>
                     </p>
                     <p class="dark-text-secondary" style="color: #9ca3af; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">
@@ -1007,7 +1007,7 @@ export function buildPasswordResetEmail(resetUrl: string, firstName?: string) {
   const greeting = firstName ? `Hi ${firstName}` : "Hello";
 
   return {
-    subject: "Reset your Tudor Padel password",
+    subject: "Reset your Padel Mania password",
     html: `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -1069,7 +1069,7 @@ export function buildPasswordResetEmail(resetUrl: string, firstName?: string) {
             <td class="mobile-padding dark-text" style="padding:32px 28px;color:#374151;font-size:16px;line-height:1.6;">
               <p class="dark-text" style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;">${greeting},</p>
               <p class="dark-text-secondary" style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;">
-                We received a request to reset the password for your Tudor Padel account.
+                We received a request to reset the password for your Padel Mania account.
                 Click the button below to choose a new password. This link will stay active for the next hour.
               </p>
               <p class="dark-text-secondary" style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;">
@@ -1095,8 +1095,8 @@ export function buildPasswordResetEmail(resetUrl: string, firstName?: string) {
             <td class="dark-accent-bg dark-border" style="background:#f9fafb;padding:24px;text-align:center;color:#6b7280;font-size:12px;">
               <p class="dark-text-secondary" style="margin:0 0 12px 0;font-family:Arial,Helvetica,sans-serif;">
                 This link expires in 60 minutes for your security.<br />
-                © ${new Date().getFullYear()} Tudor Padel. Mombasa, Kenya •
-                <a href="mailto:support@tudorpadel.com" style="color:#22734b;text-decoration:none;">support@tudorpadel.com</a>
+                © ${new Date().getFullYear()} Padel Mania. Nairobi, Kenya •
+                <a href="mailto:support@padelmania.co.ke" style="color:#22734b;text-decoration:none;">support@padelmania.co.ke</a>
               </p>
               <p class="dark-text-secondary" style="margin:0;color:#9ca3af;font-size:10px;font-family:Arial,Helvetica,sans-serif;">
                 Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a>
@@ -1122,7 +1122,7 @@ export function buildTwoFactorSetupEmail(
   {
     email,
     firstName,
-    issuer = "Tudor Padel",
+    issuer = "Padel Mania",
   }: { email: string; firstName?: string; issuer?: string }
 ) {
   const greeting = firstName ? `Hi ${firstName}` : "Hello";
@@ -1272,7 +1272,7 @@ export function buildBookingCancellationEmail(params: {
       : null;
   const subject = `❌ Booking Cancelled • ${bookingCode}`;
   const buttonUrl =
-    manageUrl || process.env.APP_URL || "https://tudorpadel.com/account";
+    manageUrl || process.env.APP_URL || "https://padelmania.co.ke/account";
 
   const html = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -1375,12 +1375,12 @@ export function buildBookingCancellationEmail(params: {
                   </td>
                 </tr>
               </table>
-              <p class="dark-text" style="margin:0;color:#111827;font-size:13px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">Tudor Padel Support</p>
+              <p class="dark-text" style="margin:0;color:#111827;font-size:13px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">Padel Mania Support</p>
             </td>
           </tr>
           <tr>
             <td class="dark-accent-bg dark-border" style="background:#f9fafb;padding:26px 28px;text-align:center;border-top:1px solid #e5e7eb;">
-              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Tudor Padel. Mombasa, Kenya • <a style="color:#22734b;text-decoration:none;" href="mailto:support@tudorpadel.com">support@tudorpadel.com</a></p>
+              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. Nairobi, Kenya • <a style="color:#22734b;text-decoration:none;" href="mailto:support@padelmania.co.ke">support@padelmania.co.ke</a></p>
               <p class="dark-text-secondary" style="margin:0;color:#9ca3af;font-size:10px;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
             </td>
           </tr>
@@ -1434,7 +1434,7 @@ export function buildGiftCardEmail(params: {
       })
     : null;
 
-  const subject = `🎁 You've received a ${amountFormatted} Tudor Padel Gift Card!`;
+  const subject = `🎁 You've received a ${amountFormatted} Padel Mania Gift Card!`;
 
   const html = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -1445,7 +1445,7 @@ export function buildGiftCardEmail(params: {
   <meta name="x-apple-disable-message-reformatting">
   <meta name="color-scheme" content="light dark">
   <meta name="supported-color-schemes" content="light dark">
-  <title>Gift Card from Tudor Padel</title>
+  <title>Gift Card from Padel Mania</title>
   <!--[if mso]>
   <noscript>
     <xml>
@@ -1513,7 +1513,7 @@ export function buildGiftCardEmail(params: {
               <p class="dark-text" style="color: #111827; font-size: 20px; line-height: 1.6; margin: 0 0 24px 0; font-family: Arial, Helvetica, sans-serif;">${greeting},</p>
               
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 16px; line-height: 1.6; margin: 0 0 32px 0; font-family: Arial, Helvetica, sans-serif;">
-                ${sender} has sent you a Tudor Padel gift card! Book a court, play some padel, and enjoy your time on the court.
+                ${sender} has sent you a Padel Mania gift card! Book a court, play some padel, and enjoy your time on the court.
               </p>
               
               ${
@@ -1537,7 +1537,7 @@ export function buildGiftCardEmail(params: {
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                       <tr>
                         <td style="text-align: center;">
-                          <p style="color: #d1fae5; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif;">Tudor Padel Gift Card</p>
+                          <p style="color: #d1fae5; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif;">Padel Mania Gift Card</p>
                           
                           <!-- Amount -->
                           <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="margin: 0 0 24px 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
@@ -1578,7 +1578,7 @@ export function buildGiftCardEmail(params: {
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                       <tr>
                         <td class="dark-text-secondary" style="color: #78350f; font-size: 14px; line-height: 1.8; font-family: Arial, Helvetica, sans-serif; text-align: left;">
-                          <strong>1.</strong> Log in to your Tudor Padel account<br>
+                          <strong>1.</strong> Log in to your Padel Mania account<br>
                           <strong>2.</strong> Go to <strong>Gift Cards</strong> section<br>
                           <strong>3.</strong> Click <strong>Redeem</strong> and enter code: <strong style="font-family: 'Courier New', monospace;">${code}</strong><br>
                           <strong>4.</strong> Your balance will be updated instantly!
@@ -1594,7 +1594,7 @@ export function buildGiftCardEmail(params: {
                 <tr>
                   <td bgcolor="#22734b" style="background-color: #22734b; border-radius: 12px; padding: 0; box-shadow: 0 4px 12px rgba(34, 115, 75, 0.3);">
                     <a href="${
-                      process.env.APP_URL || "https://tudorpadel.com"
+                      process.env.APP_URL || "https://padelmania.co.ke"
                     }/gift-cards" style="display: block; color: #ffffff; text-decoration: none; padding: 18px 40px; font-weight: bold; font-size: 16px; font-family: Arial, Helvetica, sans-serif;">
                       🎾 Redeem Now & Book a Court
                     </a>
@@ -1604,7 +1604,7 @@ export function buildGiftCardEmail(params: {
               
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 14px; line-height: 1.5; margin: 32px 0 0 0; font-family: Arial, Helvetica, sans-serif;">
                 Don't have an account yet? <a href="${
-                  process.env.APP_URL || "https://tudorpadel.com"
+                  process.env.APP_URL || "https://padelmania.co.ke"
                 }/signup" style="color: #22734b; text-decoration: none; font-weight: bold;">Sign up free</a> to get started!
               </p>
             </td>
@@ -1647,9 +1647,9 @@ export function buildGiftCardEmail(params: {
                 <tr>
                   <td>
                     <p class="dark-text-secondary" style="color: #6b7280; font-size: 12px; margin: 0 0 12px 0; line-height: 1.5; font-family: Arial, Helvetica, sans-serif;">
-                      © ${new Date().getFullYear()} Tudor Padel. All rights reserved.<br>
-                      <span style="color: #22734b; font-weight: bold;">Mombasa, Kenya</span> | 
-                      <a href="mailto:support@tudorpadel.com" style="color: #22734b; text-decoration: none;">support@tudorpadel.com</a> | 
+                      © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
+                      <span style="color: #22734b; font-weight: bold;">Nairobi, Kenya</span> | 
+                      <a href="mailto:support@padelmania.co.ke" style="color: #22734b; text-decoration: none;">support@padelmania.co.ke</a> | 
                       <span style="color: #22734b; font-weight: bold;">+254 113 666 444</span>
                     </p>
                     <p class="dark-text-secondary" style="color: #9ca3af; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">
@@ -1701,7 +1701,7 @@ export function buildRescheduleEmail(params: {
   const greeting = firstName ? `Hi ${firstName}` : "Hello";
   const subject = `📅 Booking Rescheduled • ${bookingCode}`;
   const buttonUrl =
-    manageUrl || process.env.APP_URL || "https://tudorpadel.com";
+    manageUrl || process.env.APP_URL || "https://padelmania.co.ke";
 
   const html = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -1827,12 +1827,12 @@ export function buildRescheduleEmail(params: {
               
               <p class="dark-text-secondary" style="margin:0 0 14px;color:#374151;font-size:13px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">Please arrive 10 minutes before your start time. Remember to bring appropriate footwear and stay hydrated.</p>
               <p class="dark-text" style="margin:0;color:#111827;font-size:14px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">See you soon! 👋</p>
-              <p style="margin:6px 0 0;color:#22734b;font-size:13px;font-family:Arial,Helvetica,sans-serif;">Tudor Padel Team</p>
+              <p style="margin:6px 0 0;color:#22734b;font-size:13px;font-family:Arial,Helvetica,sans-serif;">Padel Mania Team</p>
             </td>
           </tr>
           <tr>
             <td bgcolor="#f9fafb" class="dark-accent-bg dark-border" style="background:#f9fafb;padding:28px 30px;text-align:center;border-top:1px solid #e5e7eb;border-radius:0 0 12px 12px;">
-              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Tudor Padel. All rights reserved.<br><span style="color:#22734b;font-weight:bold;">Mombasa, Kenya</span> | <a href="mailto:support@tudorpadel.com" style="color:#22734b;text-decoration:none;">support@tudorpadel.com</a> | <span style="color:#22734b;font-weight:bold;">+254 113 666 444</span></p>
+              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. All rights reserved.<br><span style="color:#22734b;font-weight:bold;">Nairobi, Kenya</span> | <a href="mailto:support@padelmania.co.ke" style="color:#22734b;text-decoration:none;">support@padelmania.co.ke</a> | <span style="color:#22734b;font-weight:bold;">+254 113 666 444</span></p>
               <p class="dark-text-secondary" style="margin:0;color:#9ca3af;font-size:10px;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
             </td>
           </tr>
@@ -1877,8 +1877,8 @@ export function buildBookingInvitationEmail(params: {
   const greeting = recipientFirstName ? `Hi ${recipientFirstName}` : "Hi";
   const subject = `🎾 You're Invited to Play Padel with ${inviterName}!`;
   const buttonUrl =
-    acceptUrl || process.env.APP_URL || "https://tudorpadel.com";
-  const locationText = location || "Tudor Padel, Mombasa";
+    acceptUrl || process.env.APP_URL || "https://padelmania.co.ke";
+  const locationText = location || "Padel Mania, Nairobi";
   const locationLink = "https://maps.app.goo.gl/ukUF3jp5HvS8bxTx7";
 
   const html = `<!DOCTYPE html>
@@ -1947,7 +1947,7 @@ export function buildBookingInvitationEmail(params: {
       <tr>
         <td class="mobile-padding dark-text" style="padding:50px 40px;text-align:center;">
           <p class="dark-text" style="color:#111827;font-size:20px;margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;">${greeting}! 👋</p>
-          <p class="dark-text-secondary" style="color:#6b7280;font-size:16px;line-height:1.6;margin:0 0 32px;font-family:Arial,Helvetica,sans-serif;">${inviterName} has invited you to play padel at Tudor Padel. Come join the match and have a great time on the court!</p>
+          <p class="dark-text-secondary" style="color:#6b7280;font-size:16px;line-height:1.6;margin:0 0 32px;font-family:Arial,Helvetica,sans-serif;">${inviterName} has invited you to play padel at Padel Mania. Come join the match and have a great time on the court!</p>
           
           <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin:32px 0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
@@ -1985,13 +1985,13 @@ ${
     ? `<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin:32px 0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
               <td bgcolor="#e0f2fe" class="dark-accent-bg dark-border" style="background:#e0f2fe;border-radius:12px;padding:24px;border:1px solid #22734b;">
-                <p class="dark-text" style="color:#075985;font-size:14px;margin:0 0 12px;font-weight:bold;font-family:Arial,Helvetica,sans-serif;">🎁 New to Tudor Padel?</p>
+                <p class="dark-text" style="color:#075985;font-size:14px;margin:0 0 12px;font-weight:bold;font-family:Arial,Helvetica,sans-serif;">🎁 New to Padel Mania?</p>
                 <p class="dark-text-secondary" style="color:#0c4a6e;font-size:13px;margin:0;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">Create a free account to book courts, earn loyalty points, and unlock exclusive benefits!</p>
                 <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="margin:16px 0 0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
                   <tr>
                     <td bgcolor="#22734b" style="background:#22734b;border-radius:8px;">
                       <a href="${
-                        process.env.APP_URL || "https://tudorpadel.com"
+                        process.env.APP_URL || "https://padelmania.co.ke"
                       }/signup" style="display:block;color:#ffffff;text-decoration:none;padding:12px 24px;font-weight:600;font-size:14px;font-family:Arial,Helvetica,sans-serif;">Register</a>
                     </td>
                   </tr>
@@ -2011,7 +2011,7 @@ ${
           <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="dark-border" style="border-top:1px solid #e5e7eb;margin-top:24px;padding-top:24px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
               <td>
-                <p class="dark-text-secondary" style="color:#6b7280;font-size:12px;margin:0 0 12px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Tudor Padel. All rights reserved.<br><span style="color:#22734b;font-weight:bold;">Mombasa, Kenya</span> | <a href="mailto:support@tudorpadel.com" style="color:#22734b;text-decoration:none;">support@tudorpadel.com</a> | <span style="color:#22734b;font-weight:bold;">+254 113 666 444</span></p>
+                <p class="dark-text-secondary" style="color:#6b7280;font-size:12px;margin:0 0 12px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. All rights reserved.<br><span style="color:#22734b;font-weight:bold;">Nairobi, Kenya</span> | <a href="mailto:support@padelmania.co.ke" style="color:#22734b;text-decoration:none;">support@padelmania.co.ke</a> | <span style="color:#22734b;font-weight:bold;">+254 113 666 444</span></p>
                 <p class="dark-text-secondary" style="color:#9ca3af;font-size:11px;margin:0;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
               </td>
             </tr>
@@ -2124,7 +2124,7 @@ export function buildLoyaltyRedemptionEmail(params: {
             
             <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin:28px 0;background:#22734b;border-radius:10px;overflow:hidden;mso-table-lspace:0pt;mso-table-rspace:0pt;">
               <tr><td style="padding:32px 28px;text-align:center;">
-                <p style="color:#d1fae5;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;">Tudor Padel Gift Card</p>
+                <p style="color:#d1fae5;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;">Padel Mania Gift Card</p>
                 <div style="background-color:rgba(255,255,255,0.15);border-radius:8px;padding:16px 24px;margin:0 0 20px;">
                   <p style="color:#ffffff;font-size:36px;font-weight:700;margin:0;line-height:1;font-family:Arial,Helvetica,sans-serif;">${amountFormatted}</p>
                 </div>
@@ -2138,7 +2138,7 @@ export function buildLoyaltyRedemptionEmail(params: {
 
             <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="margin:32px auto;mso-table-lspace:0pt;mso-table-rspace:0pt;">
               <tr><td style="background-color:#22734b;border-radius:8px;">
-                <a href="${process.env.APP_URL || "https://tudorpadel.com"}/customer/loyalty" style="display:block;color:#ffffff;text-decoration:none;padding:14px 32px;font-weight:700;font-size:15px;font-family:Arial,Helvetica,sans-serif;">🏆 View My Loyalty Points</a>
+                <a href="${process.env.APP_URL || "https://padelmania.co.ke"}/customer/loyalty" style="display:block;color:#ffffff;text-decoration:none;padding:14px 32px;font-weight:700;font-size:15px;font-family:Arial,Helvetica,sans-serif;">🏆 View My Loyalty Points</a>
               </td></tr>
             </table>
 
@@ -2150,7 +2150,7 @@ export function buildLoyaltyRedemptionEmail(params: {
             <p class="dark-text" style="color:#111827;font-size:15px;font-weight:700;margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;">Need Help?</p>
             <p class="dark-text-secondary" style="color:#6b7280;font-size:13px;margin:0 0 20px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">If you have any questions about your gift card or loyalty points, our support team is here to help!</p>
             <div class="dark-border" style="border-top:1px solid #e5e7eb;margin-top:20px;padding-top:20px;">
-              <p class="dark-text-secondary" style="color:#6b7280;font-size:12px;margin:0 0 10px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Tudor Padel. All rights reserved.<br><span style="color:#22734b;font-weight:600;">Mombasa, Kenya</span> | <a href="mailto:support@tudorpadel.com" style="color:#22734b;text-decoration:none;">support@tudorpadel.com</a> | <span style="color:#22734b;font-weight:600;">+254 113 666 444</span></p>
+              <p class="dark-text-secondary" style="color:#6b7280;font-size:12px;margin:0 0 10px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. All rights reserved.<br><span style="color:#22734b;font-weight:600;">Nairobi, Kenya</span> | <a href="mailto:support@padelmania.co.ke" style="color:#22734b;text-decoration:none;">support@padelmania.co.ke</a> | <span style="color:#22734b;font-weight:600;">+254 113 666 444</span></p>
               <p style="color:#9ca3af;font-size:11px;margin:0;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
             </div>
           </td>

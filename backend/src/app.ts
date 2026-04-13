@@ -20,7 +20,7 @@ app.use(compression());
 app.use(cookieParser());
 
 // CORS configuration
-const productionCors = ["https://tudorpadel.com", "https://www.tudorpadel.com"];
+const productionCors = ["https://padelmania.co.ke", "https://www.padelmania.co.ke"];
 const developmentCors = [
   "http://localhost:3000",
   "http://localhost:5173",

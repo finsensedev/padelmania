@@ -2368,7 +2368,7 @@ const ConfirmedAndThanksModal = ({
           (booking.bookingCode
             ? `\n🎫 Booking code: ${booking.bookingCode}`
             : "") +
-          `\n\n📍 Location: Padel Mania, Mombasa\n` +
+          `\n\n📍 Location: Padel Mania, Nairobi\n` +
           `${locationLink}\n\n` +
           `Come join me for an epic match! 🏓`
         );

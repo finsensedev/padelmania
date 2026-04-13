@@ -52,7 +52,7 @@ export const uploadToCloudinary = async (
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(
       {
-        folder: `tudor-padel/${folder}`,
+        folder: `padel-mania/${folder}`,
         transformation: [
           { width: 1200, height: 1200, crop: 'limit' },
           { quality: 'auto' },

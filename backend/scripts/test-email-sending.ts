@@ -30,17 +30,17 @@ async function main() {
   try {
     await sendMail({
       to: toAddress,
-      subject: "Test Email from Tudor Padel Backend",
+      subject: "Test Email from Padel Mania Backend",
       html: `
         <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 5px;">
           <h1 style="color: #333;">Test Email</h1>
-          <p>This is a test email sent from the Tudor Padel backend script.</p>
+          <p>This is a test email sent from the Padel Mania backend script.</p>
           <hr />
           <p><strong>Recipients:</strong> ${toAddress}</p>
           <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
         </div>
       `,
-      text: `Test Email\n\nThis is a test email sent from the Tudor Padel backend script.\nRecipients: ${toAddress}\nTime: ${new Date().toLocaleString()}`,
+      text: `Test Email\n\nThis is a test email sent from the Padel Mania backend script.\nRecipients: ${toAddress}\nTime: ${new Date().toLocaleString()}`,
     });
 
     console.log("✅ Email sent successfully!");

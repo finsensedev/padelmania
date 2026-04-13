@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tudorpadel.com/sitemap.xml
+Sitemap: https://padelmania.co.ke/sitemap.xml
