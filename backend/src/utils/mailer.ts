@@ -462,8 +462,8 @@ export function buildRefundNotificationEmail(params: {
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 12px; margin: 0 0 16px 0; line-height: 1.5; font-family: Arial, Helvetica, sans-serif;">
                 © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
                 <span style="color: #6d28d9; font-weight: bold;">Nairobi, Kenya</span> | 
-                <a href="mailto:support@padelmania.co.ke" style="color: #6d28d9; text-decoration: none;">support@padelmania.co.ke</a> | 
-                <span style="color: #6d28d9; font-weight: bold;">+254 113 666 444</span>
+                <a href="mailto:team@padelmania.co.ke" style="color: #6d28d9; text-decoration: none;">team@padelmania.co.ke</a> | 
+                <span style="color: #6d28d9; font-weight: bold;">+254 742 754 354</span>
               </p>
               <p class="dark-text-secondary" style="color: #9ca3af; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">
                 Powered by <a href="https://www.finsense.co.ke/" style="color: #fc4639; text-decoration: none; font-weight: 600;">FinSense Africa ❤️</a>
@@ -608,8 +608,8 @@ export function buildWelcomeEmail(firstName: string) {
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 12px; margin: 0 0 16px 0; line-height: 1.5; font-family: Arial, Helvetica, sans-serif;">
                 © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
                 <span style="color: #6d28d9; font-weight: bold;">Nairobi, Kenya</span> | 
-                <a href="mailto:support@padelmania.co.ke" style="color: #6d28d9; text-decoration: none;">support@padelmania.co.ke</a> | 
-                <span style="color: #6d28d9; font-weight: bold;">+254 113 666 444</span>
+                <a href="mailto:team@padelmania.co.ke" style="color: #6d28d9; text-decoration: none;">team@padelmania.co.ke</a> | 
+                <span style="color: #6d28d9; font-weight: bold;">+254 742 754 354</span>
               </p>
               <p class="dark-text-secondary" style="color: #9ca3af; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">
                 Powered by <a href="https://www.finsense.co.ke/" style="color: #fc4639; text-decoration: none; font-weight: 600;">FinSense Africa ❤️</a>
@@ -823,7 +823,7 @@ export function buildBookingConfirmationEmail(params: {
           </tr>
           <tr>
             <td class="dark-accent-bg dark-border" style="background:#f9fafb;padding:28px 30px;text-align:center;border-top:1px solid #e5e7eb;">
-              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. Nairobi, Kenya • <a href="mailto:support@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">support@padelmania.co.ke</a></p>
+              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. Nairobi, Kenya • <a href="mailto:team@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">team@padelmania.co.ke</a></p>
               <p class="dark-text-secondary" style="margin:0;color:#9ca3af;font-size:10px;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
             </td>
           </tr>
@@ -973,7 +973,7 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
             <td bgcolor="#f9fafb" class="dark-accent-bg dark-border" style="background-color: #f9fafb; padding: 40px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
               <p class="dark-text-secondary" style="color: #6b7280; font-size: 14px; margin: 0 0 20px 0; line-height: 1.6; font-family: Arial, Helvetica, sans-serif;">
                 If you didn't create an account with Padel Mania, please ignore this email or 
-                <a href="mailto:support@padelmania.co.ke" style="color: #6d28d9; text-decoration: none; font-weight: bold;">contact our support team</a>.
+                <a href="mailto:team@padelmania.co.ke" style="color: #6d28d9; text-decoration: none; font-weight: bold;">contact our support team</a>.
               </p>
               
               <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="dark-border" style="border-top: 1px solid #e5e7eb; margin-top: 24px; padding-top: 24px; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
@@ -982,8 +982,8 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
                     <p class="dark-text-secondary" style="color: #6b7280; font-size: 12px; margin: 0 0 12px 0; line-height: 1.5; font-family: Arial, Helvetica, sans-serif;">
                       © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
                       <span style="color: #6d28d9; font-weight: bold;">Nairobi, Kenya</span> | 
-                      <a href="mailto:support@padelmania.co.ke" style="color: #6d28d9; text-decoration: none;">support@padelmania.co.ke</a> | 
-                      <span style="color: #6d28d9; font-weight: bold;">+254 113 666 444</span>
+                      <a href="mailto:team@padelmania.co.ke" style="color: #6d28d9; text-decoration: none;">team@padelmania.co.ke</a> | 
+                      <span style="color: #6d28d9; font-weight: bold;">+254 742 754 354</span>
                     </p>
                     <p class="dark-text-secondary" style="color: #9ca3af; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">
                       Powered by <a href="https://www.finsense.co.ke/" style="color: #fc4639; text-decoration: none; font-weight: 600;">FinSense Africa ❤️</a>
@@ -1100,7 +1100,7 @@ export function buildPasswordResetEmail(resetUrl: string, firstName?: string) {
               <p class="dark-text-secondary" style="margin:0 0 12px 0;font-family:Arial,Helvetica,sans-serif;">
                 This link expires in 60 minutes for your security.<br />
                 © ${new Date().getFullYear()} Padel Mania. Nairobi, Kenya •
-                <a href="mailto:support@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">support@padelmania.co.ke</a>
+                <a href="mailto:team@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">team@padelmania.co.ke</a>
               </p>
               <p class="dark-text-secondary" style="margin:0;color:#9ca3af;font-size:10px;font-family:Arial,Helvetica,sans-serif;">
                 Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a>
@@ -1384,7 +1384,7 @@ export function buildBookingCancellationEmail(params: {
           </tr>
           <tr>
             <td class="dark-accent-bg dark-border" style="background:#f9fafb;padding:26px 28px;text-align:center;border-top:1px solid #e5e7eb;">
-              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. Nairobi, Kenya • <a style="color:#6d28d9;text-decoration:none;" href="mailto:support@padelmania.co.ke">support@padelmania.co.ke</a></p>
+              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. Nairobi, Kenya • <a style="color:#6d28d9;text-decoration:none;" href="mailto:team@padelmania.co.ke">team@padelmania.co.ke</a></p>
               <p class="dark-text-secondary" style="margin:0;color:#9ca3af;font-size:10px;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
             </td>
           </tr>
@@ -1653,8 +1653,8 @@ export function buildGiftCardEmail(params: {
                     <p class="dark-text-secondary" style="color: #6b7280; font-size: 12px; margin: 0 0 12px 0; line-height: 1.5; font-family: Arial, Helvetica, sans-serif;">
                       © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
                       <span style="color: #6d28d9; font-weight: bold;">Nairobi, Kenya</span> | 
-                      <a href="mailto:support@padelmania.co.ke" style="color: #6d28d9; text-decoration: none;">support@padelmania.co.ke</a> | 
-                      <span style="color: #6d28d9; font-weight: bold;">+254 113 666 444</span>
+                      <a href="mailto:team@padelmania.co.ke" style="color: #6d28d9; text-decoration: none;">team@padelmania.co.ke</a> | 
+                      <span style="color: #6d28d9; font-weight: bold;">+254 742 754 354</span>
                     </p>
                     <p class="dark-text-secondary" style="color: #9ca3af; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">
                       Powered by <a href="https://www.finsense.co.ke/" style="color: #fc4639; text-decoration: none; font-weight: 600;">FinSense Africa ❤️</a>
@@ -1836,7 +1836,7 @@ export function buildRescheduleEmail(params: {
           </tr>
           <tr>
             <td bgcolor="#f9fafb" class="dark-accent-bg dark-border" style="background:#f9fafb;padding:28px 30px;text-align:center;border-top:1px solid #e5e7eb;border-radius:0 0 12px 12px;">
-              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. All rights reserved.<br><span style="color:#6d28d9;font-weight:bold;">Nairobi, Kenya</span> | <a href="mailto:support@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">support@padelmania.co.ke</a> | <span style="color:#6d28d9;font-weight:bold;">+254 113 666 444</span></p>
+              <p class="dark-text-secondary" style="margin:0 0 12px 0;color:#6b7280;font-size:11px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. All rights reserved.<br><span style="color:#6d28d9;font-weight:bold;">Nairobi, Kenya</span> | <a href="mailto:team@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">team@padelmania.co.ke</a> | <span style="color:#6d28d9;font-weight:bold;">+254 742 754 354</span></p>
               <p class="dark-text-secondary" style="margin:0;color:#9ca3af;font-size:10px;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
             </td>
           </tr>
@@ -2015,7 +2015,7 @@ ${
           <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="dark-border" style="border-top:1px solid #e5e7eb;margin-top:24px;padding-top:24px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
               <td>
-                <p class="dark-text-secondary" style="color:#6b7280;font-size:12px;margin:0 0 12px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. All rights reserved.<br><span style="color:#6d28d9;font-weight:bold;">Nairobi, Kenya</span> | <a href="mailto:support@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">support@padelmania.co.ke</a> | <span style="color:#6d28d9;font-weight:bold;">+254 113 666 444</span></p>
+                <p class="dark-text-secondary" style="color:#6b7280;font-size:12px;margin:0 0 12px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. All rights reserved.<br><span style="color:#6d28d9;font-weight:bold;">Nairobi, Kenya</span> | <a href="mailto:team@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">team@padelmania.co.ke</a> | <span style="color:#6d28d9;font-weight:bold;">+254 742 754 354</span></p>
                 <p class="dark-text-secondary" style="color:#9ca3af;font-size:11px;margin:0;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
               </td>
             </tr>
@@ -2154,7 +2154,7 @@ export function buildLoyaltyRedemptionEmail(params: {
             <p class="dark-text" style="color:#111827;font-size:15px;font-weight:700;margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;">Need Help?</p>
             <p class="dark-text-secondary" style="color:#6b7280;font-size:13px;margin:0 0 20px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">If you have any questions about your gift card or loyalty points, our support team is here to help!</p>
             <div class="dark-border" style="border-top:1px solid #e5e7eb;margin-top:20px;padding-top:20px;">
-              <p class="dark-text-secondary" style="color:#6b7280;font-size:12px;margin:0 0 10px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. All rights reserved.<br><span style="color:#6d28d9;font-weight:600;">Nairobi, Kenya</span> | <a href="mailto:support@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">support@padelmania.co.ke</a> | <span style="color:#6d28d9;font-weight:600;">+254 113 666 444</span></p>
+              <p class="dark-text-secondary" style="color:#6b7280;font-size:12px;margin:0 0 10px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">© ${new Date().getFullYear()} Padel Mania. All rights reserved.<br><span style="color:#6d28d9;font-weight:600;">Nairobi, Kenya</span> | <a href="mailto:team@padelmania.co.ke" style="color:#6d28d9;text-decoration:none;">team@padelmania.co.ke</a> | <span style="color:#6d28d9;font-weight:600;">+254 742 754 354</span></p>
               <p style="color:#9ca3af;font-size:11px;margin:0;font-family:Arial,Helvetica,sans-serif;">Powered by <a href="https://www.finsense.co.ke/" style="color:#fc4639;text-decoration:none;font-weight:600;">FinSense Africa ❤️</a></p>
             </div>
           </td>
