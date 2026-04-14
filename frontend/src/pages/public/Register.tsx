@@ -71,7 +71,7 @@ function Register() {
         };
         setSubmitError(
           axiosError.response?.data?.message ||
-            "Registration failed. Please try again."
+            "Registration failed. Please try again.",
         );
       }
     },
@@ -111,14 +111,29 @@ function Register() {
               </span>
               . Click the link in your email to verify your account.
             </p>
-            <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg p-3 mb-6 text-left">
-              <p className="text-xs sm:text-sm text-amber-800 dark:text-amber-300 font-medium mb-1">
+            <div
+              className="bg-white dark:bg-white/5 border border-border rounded-lg p-3 mb-6 text-left"
+              style={{ borderLeft: "3px solid hsl(268 68% 45%)" }}
+            >
+              <p className="text-xs sm:text-sm text-foreground font-semibold mb-1">
                 Can't find the email?
               </p>
-              <ul className="text-xs text-amber-700 dark:text-amber-400 space-y-1 list-disc list-inside">
-                <li>Check your <strong>Spam</strong> or <strong>Junk</strong> folder</li>
-                <li>If you use iCloud, Apple Mail, or Outlook, the email may take a few minutes</li>
-                <li>Make sure <strong>{formik.values.email}</strong> is correct</li>
+              <ul className="text-xs text-muted-foreground space-y-1 list-disc list-inside">
+                <li>
+                  Check your <strong className="text-foreground">Spam</strong>{" "}
+                  or <strong className="text-foreground">Junk</strong> folder
+                </li>
+                <li>
+                  If you use iCloud, Apple Mail, or Outlook, the email may take
+                  a few minutes
+                </li>
+                <li>
+                  Make sure{" "}
+                  <strong className="text-foreground">
+                    {formik.values.email}
+                  </strong>{" "}
+                  is correct
+                </li>
               </ul>
             </div>
             <div className="space-y-3">
@@ -136,9 +151,13 @@ function Register() {
                     await api.post("/auth/resend-verification", {
                       email: formik.values.email,
                     });
-                    setResendMessage("Verification email resent! Check your inbox.");
+                    setResendMessage(
+                      "Verification email resent! Check your inbox.",
+                    );
                   } catch {
-                    setResendMessage("Failed to resend. Please try again later.");
+                    setResendMessage(
+                      "Failed to resend. Please try again later.",
+                    );
                   } finally {
                     setResendLoading(false);
                   }
