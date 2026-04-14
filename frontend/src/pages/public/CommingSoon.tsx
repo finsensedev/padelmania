@@ -317,7 +317,7 @@ function CommingSoon() {
                   <GiTennisRacket className="w-7 h-7 text-primary" />
                 </div>
                 <span className="text-3xl sm:text-4xl font-black tabular-nums text-foreground">
-                  Ksh&nbsp;200
+                  Ksh&nbsp;300
                 </span>
               </div>
               <h4 className="text-xl sm:text-2xl font-black uppercase mb-2 text-foreground">
