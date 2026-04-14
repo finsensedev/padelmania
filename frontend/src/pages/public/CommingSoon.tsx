@@ -391,8 +391,8 @@ function CommingSoon() {
                 <span className="text-foreground/30">Play With Us</span>
               </h2>
               <p className="text-foreground/50 text-sm sm:text-base leading-relaxed mb-8">
-                We're located in the heart of Nairobi. Easy to reach,
-                impossible to forget once you've played here.
+                We're located in the heart of Nairobi. Easy to reach, impossible
+                to forget once you've played here.
               </p>
               <div className="space-y-4 mb-10">
                 {[
@@ -401,8 +401,8 @@ function CommingSoon() {
                     label: "Location",
                     value: "Nairobi, Kenya",
                   },
-                  { icon: "", label: "Phone", value: "+254 000 000 000" },
-                  { icon: "", label: "Instagram", value: "@padelmania" },
+                  { icon: "", label: "Phone", value: "+254 742 754 354" },
+                  { icon: "", label: "Instagram", value: "@padelmanialtd" },
                 ].map((item, i) => (
                   <div
                     key={i}
@@ -467,7 +467,7 @@ function CommingSoon() {
       >
         <div className="group relative">
           <a
-            href="https://wa.me/254000000000?text=Hello%20Padel%20Mania"
+            href="https://wa.me/254742754354?text=Hello%20Padel%20Mania"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
@@ -495,7 +495,7 @@ function CommingSoon() {
 
         <div className="group relative">
           <a
-            href="https://www.instagram.com/padelmania"
+            href="https://www.instagram.com/padelmanialtd"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -518,7 +518,7 @@ function CommingSoon() {
             className="h-10 w-auto opacity-60"
           />
           <p className="text-foreground/30 text-xs text-center">
-            &copy; 2025 Padel Mania. All rights reserved.
+            &copy; 2026 Padel Mania. All rights reserved.
           </p>
           <p className="text-foreground/30 text-xs">
             Powered by{" "}
