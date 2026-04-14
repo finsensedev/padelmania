@@ -3,12 +3,12 @@ import { FaInstagram, FaWhatsapp, FaPhone } from "react-icons/fa";
 import { GiTennisBall, GiTennisRacket } from "react-icons/gi";
 import PricingDisplay from "src/components/shared/PricingDisplay";
 
-const IMAGES = [
-  "/images/ultimate-padel-vibe.jpeg",
-  "/images/club-coming-soon.jpeg",
-  "/images/from-court-to-cafe.jpeg",
-  "/images/padel-club-count-down.jpeg",
-];
+// const IMAGES = [
+//   "/images/ultimate-padel-vibe.jpeg",
+//   "/images/club-coming-soon.jpeg",
+//   "/images/from-court-to-cafe.jpeg",
+//   "/images/padel-club-count-down.jpeg",
+// ];
 
 function CommingSoon() {
   const [searchParams] = useSearchParams();
@@ -355,7 +355,7 @@ function CommingSoon() {
       </section>
 
       {/* PHOTO STRIP */}
-      <section className="py-12 overflow-hidden bg-background">
+      {/* <section className="py-12 overflow-hidden bg-background">
         <div
           className="flex gap-3 animate-slide-left"
           style={{ width: "max-content" }}
@@ -374,7 +374,7 @@ function CommingSoon() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* LOCATION */}
       <section className="py-20 sm:py-28 bg-card border-t border-border/10">
