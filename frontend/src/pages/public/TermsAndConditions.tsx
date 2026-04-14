@@ -42,7 +42,7 @@ function TermsAndConditions() {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     const sections = document.querySelectorAll("section[id]");
@@ -344,9 +344,9 @@ function TermsAndConditions() {
                             <br />
                             <strong>Address:</strong> Nairobi, Kenya
                             <br />
-                            <strong>Email:</strong> privacy@padelmania.com
+                            <strong>Email:</strong> team@padelmania.co.ke
                             <br />
-                            <strong>Phone:</strong> +254 113 666 444
+                            <strong>Phone:</strong> +254 742 754 354
                           </p>
                         </div>
                       </div>
@@ -497,10 +497,10 @@ function TermsAndConditions() {
                         </h3>
                         <div className="space-y-1.5 sm:space-y-2 text-sm sm:text-base">
                           <p>
-                            <strong>Email:</strong> support@padelmania.com
+                            <strong>Email:</strong> team@padelmania.co.ke
                           </p>
                           <p>
-                            <strong>Phone:</strong> +254 113 666 444
+                            <strong>Phone:</strong> +254 742 754 354
                           </p>
                           <p>
                             <strong>Address:</strong> Nairobi, Kenya

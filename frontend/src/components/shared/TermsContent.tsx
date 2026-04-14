@@ -256,9 +256,9 @@ export const TermsContent = ({
           <p className="leading-tight">
             If you have any questions about these terms or our privacy policy:
           </p>
-          <p className="leading-tight">📧 Email: support@padelmania.com</p>
-          <p className="leading-tight">📞 Phone: +254 113 666 444</p>
-          <p className="leading-tight">📍 Address: Nairobi, Kenya</p>
+          <p className="leading-tight">Email: team@padelmania.com</p>
+          <p className="leading-tight">Phone: +254 742 754 354</p>
+          <p className="leading-tight">Address: Nairobi, Kenya</p>
         </div>
       </div>
     </div>

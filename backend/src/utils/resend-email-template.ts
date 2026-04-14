@@ -61,8 +61,8 @@ export function buildResendVerificationEmail(
                     <p style="color: hsl(240, 3.8%, 46.1%); font-size: 12px; margin: 0 0 12px 0; line-height: 1.5; font-family: 'Inter', sans-serif;">
                       © ${new Date().getFullYear()} Padel Mania. All rights reserved.<br>
                       <span style="color: hsl(268, 68%, 45%); font-weight: 600;">Nairobi, Kenya</span> | 
-                      <a href="mailto:support@padelmania.co.ke" style="color: hsl(268, 68%, 45%); text-decoration: none;">support@padelmania.co.ke</a> | 
-                      <span style="color: hsl(268, 68%, 45%); font-weight: 600;">+254 113 666 444</span>
+                      <a href="mailto:team@padelmania.co.ke" style="color: hsl(268, 68%, 45%); text-decoration: none;">team@padelmania.co.ke</a> | 
+                      <span style="color: hsl(268, 68%, 45%); font-weight: 600;">+254 742 754 354</span>
                     </p>
                     <p style="color: #9ca3af; font-size: 11px; margin: 0; font-family: 'Inter', sans-serif;">
                       Powered by <a href="https://www.finsense.co.ke/" style="color: #fc4639; text-decoration: none; font-weight: 600;">FinSense Africa</a>
