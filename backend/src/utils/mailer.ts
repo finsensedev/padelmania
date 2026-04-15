@@ -44,7 +44,7 @@ async function verifyOnce() {
   try {
     await transporter.verify();
     verifiedOnce = true;
-    console.log("✅ SMTP transporter verified (one-time)");
+    console.log("[mailer] SMTP transporter verified (one-time)");
     return true;
   } catch (err) {
     console.warn("[mailer] Transport verify failed (will retry lazily):", err);
@@ -94,7 +94,7 @@ export async function sendMail(options: SendMailOptions) {
   if (!SMTP_USER || !SMTP_PASS) {
     const msg =
       "SMTP credentials not configured. Please set SMTP_USER & SMTP_PASS.";
-    console.error("❌", msg);
+    console.error("[mailer]", msg);
     throw new Error(msg);
   }
 
@@ -118,7 +118,7 @@ export async function sendMail(options: SendMailOptions) {
       ...(headers || {}),
     } as Record<string, string>;
 
-    console.log(`� [mailer] Sending → to=${to} subject="${subject}"`);
+    console.log(` [mailer] Sending → to=${to} subject="${subject}"`);
     const info = await transporter.sendMail({
       from: `${fromName || "Padel Mania"} <${fromAddr}>`,
       to,
@@ -130,13 +130,13 @@ export async function sendMail(options: SendMailOptions) {
       attachments,
     });
     console.log(
-      `✅ [mailer] Sent to ${to} id=${info.messageId} response=${info.response}`,
+      ` [mailer] Sent to ${to} id=${info.messageId} response=${info.response}`,
     );
     return info;
   } catch (error) {
     const domain = to.split("@")[1]?.toLowerCase() || "unknown";
     console.error(
-      `❌ [mailer] Failed send to ${to} (domain=${domain}):`,
+      `[mailer] Failed send to ${to} (domain=${domain}):`,
       error instanceof Error ? error.message : error,
     );
     console.error(
@@ -154,10 +154,10 @@ export async function testEmailConnection() {
   }
   try {
     await transporter.verify();
-    console.log("✅ SMTP connection verified successfully");
+    console.log("[mailer] SMTP connection verified successfully");
     return true;
   } catch (error) {
-    console.error("❌ SMTP connection failed:", error);
+    console.error("[mailer] SMTP connection failed:", error);
     return false;
   }
 }
@@ -234,7 +234,7 @@ export function buildRefundNotificationEmail(params: {
         })
       : "";
 
-  const subject = `💰 Refund ${full ? "Completed" : "Processed"} • ${fmt(
+  const subject = `Refund ${full ? "Completed" : "Processed"} • ${fmt(
     refundAmount,
   )} • ${bookingCode || transactionId}`;
 
@@ -301,7 +301,7 @@ export function buildRefundNotificationEmail(params: {
           <tr>
             <td bgcolor="#6d28d9" style="background-color: #6d28d9; padding: 40px 30px; text-align: center; mso-line-height-rule: exactly; line-height: 1.5;">
               <!-- Icon -->
-              <div style="font-size: 48px; line-height: 1; margin-bottom: 16px;">💰</div>
+
               
               <h1 style="color: #ffffff; font-size: 32px; font-weight: bold; margin: 0; font-family: Arial, Helvetica, sans-serif;">Refund ${
                 full ? "Completed" : "Processed"
@@ -352,7 +352,7 @@ export function buildRefundNotificationEmail(params: {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-border" style="border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; margin: 32px 0; text-align: left; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                 <tr>
                   <td colspan="2" bgcolor="#f9fafb" class="dark-accent-bg dark-border" style="background-color: #f9fafb; padding: 16px 20px; border-bottom: 1px solid #e5e7eb;">
-                    <p class="dark-text" style="margin: 0; font-size: 16px; font-weight: bold; color: #111827; font-family: Arial, Helvetica, sans-serif;">📋 Transaction Details</p>
+                    <p class="dark-text" style="margin: 0; font-size: 16px; font-weight: bold; color: #111827; font-family: Arial, Helvetica, sans-serif;">Transaction Details</p>
                   </td>
                 </tr>
                 <tr>
@@ -435,7 +435,7 @@ export function buildRefundNotificationEmail(params: {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" class="dark-accent-bg" style="background-color: #f5f3ff; border-left: 4px solid #6d28d9; border-radius: 8px; margin: 32px 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                 <tr>
                   <td style="padding: 20px;">
-                    <p style="margin: 0 0 12px 0; font-size: 15px; font-weight: bold; color: #6d28d9; font-family: Arial, Helvetica, sans-serif;">ℹ️ Next Steps</p>
+                    <p style="margin: 0 0 12px 0; font-size: 15px; font-weight: bold; color: #6d28d9; font-family: Arial, Helvetica, sans-serif;">ℹ Next Steps</p>
                     <p style="margin: 0; font-size: 14px; color: #6d28d9; line-height: 1.6; font-family: Arial, Helvetica, sans-serif;">
                       • Verify the refund in the admin dashboard<br>
                       • Run reconciliation if needed<br>
@@ -487,7 +487,7 @@ export function buildRefundNotificationEmail(params: {
 
 export function buildWelcomeEmail(firstName: string) {
   return {
-    subject: "🎉 Welcome to Padel Mania - Your Account is Ready!",
+    subject: "Welcome to Padel Mania - Your Account is Ready!",
     html: `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -553,7 +553,7 @@ export function buildWelcomeEmail(firstName: string) {
                     <table width="60" cellpadding="0" cellspacing="0" border="0" align="center" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                       <tr>
                         <td width="60" height="60" bgcolor="#ffffff" style="background-color: #ffffff; border-radius: 30px; text-align: center; vertical-align: middle; font-size: 32px; color: #6d28d9; font-weight: bold; line-height: 60px;">
-                          ✓
+                          
                         </td>
                       </tr>
                     </table>
@@ -569,7 +569,7 @@ export function buildWelcomeEmail(firstName: string) {
           <!-- Content -->
           <tr>
             <td class="mobile-padding dark-text" style="padding: 50px 40px; text-align: center;">
-              <h2 class="dark-text" style="color: #111827; font-size: 28px; font-weight: bold; margin: 0 0 24px 0; font-family: Arial, Helvetica, sans-serif;">Welcome to Padel Mania, ${firstName}! 🎉</h2>
+              <h2 class="dark-text" style="color: #111827; font-size: 28px; font-weight: bold; margin: 0 0 24px 0; font-family: Arial, Helvetica, sans-serif;">Welcome to Padel Mania, ${firstName}!</h2>
               
               <p class="dark-text-secondary mobile-font" style="color: #6b7280; font-size: 18px; line-height: 1.6; margin: 0 0 32px 0; font-family: Arial, Helvetica, sans-serif;">
                 Your email has been successfully verified and your account is now active. You're all set to start your padel journey with us!
@@ -579,7 +579,7 @@ export function buildWelcomeEmail(firstName: string) {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin: 32px 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                 <tr>
                   <td bgcolor="#f5f3ff" class="dark-accent-bg dark-border" style="background-color: #f5f3ff; border-radius: 12px; padding: 32px; border: 1px solid #6d28d9;">
-                    <h3 style="color: #6d28d9; font-size: 20px; font-weight: bold; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif;">🎁 Welcome Bonus</h3>
+                    <h3 style="color: #6d28d9; font-size: 20px; font-weight: bold; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif;">Welcome Bonus</h3>
                     <p style="color: #6d28d9; font-size: 18px; margin: 0; font-family: Arial, Helvetica, sans-serif;">You've received <strong style="color: #f59e0b;">100 loyalty points</strong> to get you started!</p>
                   </td>
                 </tr>
@@ -590,7 +590,7 @@ export function buildWelcomeEmail(firstName: string) {
                 <tr>
                   <td bgcolor="#6d28d9" style="background-color: #6d28d9; border-radius: 12px; padding: 0;">
                     <a href="#" style="display: block; color: #ffffff; text-decoration: none; padding: 16px 32px; font-weight: bold; font-size: 16px; font-family: Arial, Helvetica, sans-serif;">
-                      🎾 Start Playing Now
+                      Start Playing Now
                     </a>
                   </td>
                 </tr>
@@ -674,7 +674,7 @@ export function buildBookingConfirmationEmail(params: {
   });
   const currency = currencyFormatter.format(amount);
 
-  const subject = `🎾 Booking Confirmed • ${bookingCode}`;
+  const subject = `Booking Confirmed • ${bookingCode}`;
   const buttonUrl =
     manageUrl || process.env.APP_URL || "https://padelmania.co.ke";
 
@@ -817,7 +817,7 @@ export function buildBookingConfirmationEmail(params: {
               </table>
               <p class="dark-text-secondary" style="margin:0 0 14px;color:#374151;font-size:13px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">Please arrive 10 minutes before your start time to warm up and check in with staff. Remember to bring appropriate footwear and stay hydrated.</p>
               <p class="dark-text-secondary" style="margin:0 0 26px;color:#6b7280;font-size:12px;font-family:Arial,Helvetica,sans-serif;">If you need to make changes, you can manage your booking via the button above.</p>
-              <p class="dark-text" style="margin:0;color:#111827;font-size:14px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">See you soon! 👋</p>
+              <p class="dark-text" style="margin:0;color:#111827;font-size:14px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">See you soon! </p>
               <p style="margin:6px 0 0;color:#6d28d9;font-size:13px;font-family:Arial,Helvetica,sans-serif;">Padel Mania Team</p>
             </td>
           </tr>
@@ -844,7 +844,7 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
   const greeting = firstName ? `Hi ${firstName}` : "Hello";
 
   return {
-    subject: "🎾 Welcome to Padel Mania - Verify Your Account",
+    subject: "Welcome to Padel Mania - Verify Your Account",
     html: `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -921,7 +921,7 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
                 <tr>
                   <td bgcolor="#6d28d9" style="background-color: #6d28d9; border-radius: 12px; padding: 0;">
                     <a href="${verifyUrl}" style="display: block; color: #ffffff; text-decoration: none; padding: 16px 32px; font-weight: bold; font-size: 16px; font-family: Arial, Helvetica, sans-serif;">
-                      ✅ Verify My Email Address
+                      Verify My Email Address
                     </a>
                   </td>
                 </tr>
@@ -951,7 +951,7 @@ export function buildVerificationEmail(verifyUrl: string, firstName?: string) {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin: 32px 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                 <tr>
                   <td bgcolor="#f5f3ff" class="dark-accent-bg" style="background-color: #f5f3ff; border-left: 4px solid #6d28d9; padding: 24px; border-radius: 0 12px 12px 0;">
-                    <h3 style="color: #6d28d9; font-size: 18px; font-weight: bold; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif;">🎯 What's next?</h3>
+                    <h3 style="color: #6d28d9; font-size: 18px; font-weight: bold; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif;"> What's next?</h3>
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                       <tr>
                         <td style="color: #6d28d9; font-size: 16px; line-height: 1.8; font-family: Arial, Helvetica, sans-serif;">
@@ -1274,7 +1274,7 @@ export function buildBookingCancellationEmail(params: {
     refundedAmount && refundedAmount > 0
       ? currencyFormatter.format(refundedAmount)
       : null;
-  const subject = `❌ Booking Cancelled • ${bookingCode}`;
+  const subject = ` Booking Cancelled • ${bookingCode}`;
   const buttonUrl =
     manageUrl || process.env.APP_URL || "https://padelmania.co.ke/account";
 
@@ -1438,7 +1438,7 @@ export function buildGiftCardEmail(params: {
       })
     : null;
 
-  const subject = `🎁 You've received a ${amountFormatted} Padel Mania Gift Card!`;
+  const subject = ` You've received a ${amountFormatted} Padel Mania Gift Card!`;
 
   const html = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -1501,7 +1501,7 @@ export function buildGiftCardEmail(params: {
               <table width="120" cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="margin-bottom: 24px; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                 <tr>
                   <td width="120" height="120" style="text-align: center; vertical-align: middle; font-size: 64px; color: #ffffff;">
-                    🎁
+                    
                   </td>
                 </tr>
               </table>
@@ -1526,7 +1526,7 @@ export function buildGiftCardEmail(params: {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin: 32px 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                 <tr>
                   <td bgcolor="#f5f3ff" class="dark-accent-bg dark-border" style="background-color: #f5f3ff; border-left: 4px solid #6d28d9; padding: 24px; border-radius: 0 12px 12px 0; text-align: left;">
-                    <p class="dark-text" style="color: #111827; font-size: 14px; font-weight: bold; margin: 0 0 12px 0; font-family: Arial, Helvetica, sans-serif;">💌 Personal Message</p>
+                    <p class="dark-text" style="color: #111827; font-size: 14px; font-weight: bold; margin: 0 0 12px 0; font-family: Arial, Helvetica, sans-serif;"> Personal Message</p>
                     <p class="dark-text-secondary" style="color: #374151; font-size: 15px; line-height: 1.6; margin: 0; font-family: Arial, Helvetica, sans-serif; font-style: italic;">"${message}"</p>
                   </td>
                 </tr>
@@ -1578,7 +1578,7 @@ export function buildGiftCardEmail(params: {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin: 40px 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                 <tr>
                   <td bgcolor="#fef3c7" class="dark-accent-bg dark-border" style="background-color: #fef3c7; border-radius: 12px; padding: 32px; border: 2px dashed #f59e0b;">
-                    <h3 class="dark-text" style="color: #92400e; font-size: 18px; font-weight: bold; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif; text-align: center;">🎯 How to Redeem</h3>
+                    <h3 class="dark-text" style="color: #92400e; font-size: 18px; font-weight: bold; margin: 0 0 16px 0; font-family: Arial, Helvetica, sans-serif; text-align: center;"> How to Redeem</h3>
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                       <tr>
                         <td class="dark-text-secondary" style="color: #78350f; font-size: 14px; line-height: 1.8; font-family: Arial, Helvetica, sans-serif; text-align: left;">
@@ -1600,7 +1600,7 @@ export function buildGiftCardEmail(params: {
                     <a href="${
                       process.env.APP_URL || "https://padelmania.co.ke"
                     }/gift-cards" style="display: block; color: #ffffff; text-decoration: none; padding: 18px 40px; font-weight: bold; font-size: 16px; font-family: Arial, Helvetica, sans-serif;">
-                      🎾 Redeem Now & Book a Court
+                       Redeem Now & Book a Court
                     </a>
                   </td>
                 </tr>
@@ -1620,17 +1620,17 @@ export function buildGiftCardEmail(params: {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="dark-border" style="border-top: 1px solid #e5e7eb; padding-top: 32px; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                 <tr>
                   <td width="33%" style="text-align: center; padding: 0 8px;">
-                    <p style="font-size: 28px; margin: 0 0 8px 0;">🏆</p>
+                    <p style="font-size: 28px; margin: 0 0 8px 0;"></p>
                     <p class="dark-text" style="color: #111827; font-size: 13px; font-weight: bold; margin: 0 0 4px 0; font-family: Arial, Helvetica, sans-serif;">Earn Points</p>
                     <p class="dark-text-secondary" style="color: #6b7280; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">Get rewarded with every game</p>
                   </td>
                   <td width="33%" class="dark-border" style="text-align: center; padding: 0 8px; border-left: 1px solid #e5e7eb; border-right: 1px solid #e5e7eb;">
-                    <p style="font-size: 28px; margin: 0 0 8px 0;">⚡</p>
+                    <p style="font-size: 28px; margin: 0 0 8px 0;"></p>
                     <p class="dark-text" style="color: #111827; font-size: 13px; font-weight: bold; margin: 0 0 4px 0; font-family: Arial, Helvetica, sans-serif;">Instant Booking</p>
                     <p class="dark-text-secondary" style="color: #6b7280; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">Reserve courts in seconds</p>
                   </td>
                   <td width="33%" style="text-align: center; padding: 0 8px;">
-                    <p style="font-size: 28px; margin: 0 0 8px 0;">🎁</p>
+                    <p style="font-size: 28px; margin: 0 0 8px 0;"></p>
                     <p class="dark-text" style="color: #111827; font-size: 13px; font-weight: bold; margin: 0 0 4px 0; font-family: Arial, Helvetica, sans-serif;">No Expiry</p>
                     <p class="dark-text-secondary" style="color: #6b7280; font-size: 11px; margin: 0; font-family: Arial, Helvetica, sans-serif;">Use your balance anytime</p>
                   </td>
@@ -1703,7 +1703,7 @@ export function buildRescheduleEmail(params: {
   } = params;
 
   const greeting = firstName ? `Hi ${firstName}` : "Hello";
-  const subject = `📅 Booking Rescheduled • ${bookingCode}`;
+  const subject = ` Booking Rescheduled • ${bookingCode}`;
   const buttonUrl =
     manageUrl || process.env.APP_URL || "https://padelmania.co.ke";
 
@@ -1802,7 +1802,7 @@ export function buildRescheduleEmail(params: {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="dark-accent-bg dark-border" style="margin:0 0 28px;border:2px solid #6d28d9;border-radius:10px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
                 <tr>
                   <td style="padding:22px 24px;">
-                    <h3 style="margin:0 0 14px;color:#6d28d9;font-size:16px;font-weight:700;font-family:Arial,Helvetica,sans-serif;">✓ New Booking Details</h3>
+                    <h3 style="margin:0 0 14px;color:#6d28d9;font-size:16px;font-weight:700;font-family:Arial,Helvetica,sans-serif;"> New Booking Details</h3>
                     <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="dark-text" style="font-size:14px;color:#111827;line-height:1.5;font-family:Arial,Helvetica,sans-serif;mso-table-lspace:0pt;mso-table-rspace:0pt;">
                       <tr><td style="padding:4px 0;font-weight:600;width:140px;">Court</td><td style="padding:4px 0;">${courtName}</td></tr>
                       <tr><td style="padding:4px 0;font-weight:600;">Date</td><td style="padding:4px 0;">${date}</td></tr>
@@ -1824,13 +1824,13 @@ export function buildRescheduleEmail(params: {
               <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="dark-accent-bg dark-border" style="margin:0 0 22px;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
                 <tr>
                   <td style="padding:16px 20px;">
-                    <p class="dark-text-secondary" style="margin:0;color:#78350f;font-size:13px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;"><strong class="dark-text" style="color:#92400e;">⚠️ Important:</strong> If you did not request this change, please contact us immediately to secure your account.</p>
+                    <p class="dark-text-secondary" style="margin:0;color:#78350f;font-size:13px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;"><strong class="dark-text" style="color:#92400e;"> Important:</strong> If you did not request this change, please contact us immediately to secure your account.</p>
                   </td>
                 </tr>
               </table>
               
               <p class="dark-text-secondary" style="margin:0 0 14px;color:#374151;font-size:13px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">Please arrive 10 minutes before your start time. Remember to bring appropriate footwear and stay hydrated.</p>
-              <p class="dark-text" style="margin:0;color:#111827;font-size:14px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">See you soon! 👋</p>
+              <p class="dark-text" style="margin:0;color:#111827;font-size:14px;font-weight:600;font-family:Arial,Helvetica,sans-serif;">See you soon! </p>
               <p style="margin:6px 0 0;color:#6d28d9;font-size:13px;font-family:Arial,Helvetica,sans-serif;">Padel Mania Team</p>
             </td>
           </tr>
@@ -1879,7 +1879,7 @@ export function buildBookingInvitationEmail(params: {
   } = params;
 
   const greeting = recipientFirstName ? `Hi ${recipientFirstName}` : "Hi";
-  const subject = `🎾 You're Invited to Play Padel with ${inviterName}!`;
+  const subject = ` You're Invited to Play Padel with ${inviterName}!`;
   const buttonUrl =
     acceptUrl || process.env.APP_URL || "https://padelmania.co.ke";
   const locationText = location || "Padel Mania, Nairobi";
@@ -1941,7 +1941,7 @@ export function buildBookingInvitationEmail(params: {
         <td style="background:linear-gradient(135deg,#6d28d9,#7c3aed);padding:50px 30px;text-align:center;border-radius:12px 12px 0 0;">
           <table width="120" cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="margin-bottom:24px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
-              <td width="120" height="120" style="text-align:center;font-size:64px;">🎾</td>
+              <td width="120" height="120" style="text-align:center;font-size:64px;"></td>
             </tr>
           </table>
           <h1 style="color:#ffffff;font-size:32px;font-weight:bold;margin:0;font-family:Arial,Helvetica,sans-serif;">You're Invited!</h1>
@@ -1950,19 +1950,19 @@ export function buildBookingInvitationEmail(params: {
       </tr>
       <tr>
         <td class="mobile-padding dark-text" style="padding:50px 40px;text-align:center;">
-          <p class="dark-text" style="color:#111827;font-size:20px;margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;">${greeting}! 👋</p>
+          <p class="dark-text" style="color:#111827;font-size:20px;margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;">${greeting}! </p>
           <p class="dark-text-secondary" style="color:#6b7280;font-size:16px;line-height:1.6;margin:0 0 32px;font-family:Arial,Helvetica,sans-serif;">${inviterName} has invited you to play padel at Padel Mania. Come join the match and have a great time on the court!</p>
           
           <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin:32px 0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
               <td bgcolor="#f5f3ff" class="dark-card dark-border" style="background:#f5f3ff;border-radius:12px;padding:32px;border:2px solid #6d28d9;mso-table-lspace:0pt;mso-table-rspace:0pt;">
-                <p style="color:#6d28d9;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 20px;text-align:left;font-family:Arial,Helvetica,sans-serif;">📋 Match Details</p>
+                <p style="color:#6d28d9;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 20px;text-align:left;font-family:Arial,Helvetica,sans-serif;"> Match Details</p>
                 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="font-size:15px;color:#111827;line-height:2;text-align:left;mso-table-lspace:0pt;mso-table-rspace:0pt;">
-                  <tr><td class="dark-text-secondary" style="padding:8px 0;font-weight:600;width:120px;font-family:Arial,Helvetica,sans-serif;">🏟️ Court</td><td class="dark-text" style="padding:8px 0;font-family:Arial,Helvetica,sans-serif;">${courtName}</td></tr>
-                  <tr><td class="dark-text-secondary" style="padding:8px 0;font-weight:600;font-family:Arial,Helvetica,sans-serif;">📅 Date</td><td class="dark-text" style="padding:8px 0;font-family:Arial,Helvetica,sans-serif;">${date}</td></tr>
+                  <tr><td class="dark-text-secondary" style="padding:8px 0;font-weight:600;width:120px;font-family:Arial,Helvetica,sans-serif;"> Court</td><td class="dark-text" style="padding:8px 0;font-family:Arial,Helvetica,sans-serif;">${courtName}</td></tr>
+                  <tr><td class="dark-text-secondary" style="padding:8px 0;font-weight:600;font-family:Arial,Helvetica,sans-serif;"> Date</td><td class="dark-text" style="padding:8px 0;font-family:Arial,Helvetica,sans-serif;">${date}</td></tr>
                   <tr><td class="dark-text-secondary" style="padding:8px 0;font-weight:600;font-family:Arial,Helvetica,sans-serif;">⏰ Time</td><td class="dark-text" style="padding:8px 0;font-family:Arial,Helvetica,sans-serif;">${timeRange}</td></tr>
-                  <tr><td class="dark-text-secondary" style="padding:8px 0;font-weight:600;font-family:Arial,Helvetica,sans-serif;">📍 Location</td><td class="dark-text" style="padding:8px 0;font-family:Arial,Helvetica,sans-serif;"><a href="${locationLink}" style="color:#6d28d9;text-decoration:none;font-weight:600;">${locationText}</a></td></tr>
-                  <tr><td class="dark-text-secondary" style="padding:8px 0;font-weight:600;font-family:Arial,Helvetica,sans-serif;">🎫 Code</td><td class="dark-text" style="padding:8px 0;font-family:monospace;color:#6d28d9;">${bookingCode}</td></tr>
+                  <tr><td class="dark-text-secondary" style="padding:8px 0;font-weight:600;font-family:Arial,Helvetica,sans-serif;"> Location</td><td class="dark-text" style="padding:8px 0;font-family:Arial,Helvetica,sans-serif;"><a href="${locationLink}" style="color:#6d28d9;text-decoration:none;font-weight:600;">${locationText}</a></td></tr>
+                  <tr><td class="dark-text-secondary" style="padding:8px 0;font-weight:600;font-family:Arial,Helvetica,sans-serif;"> Code</td><td class="dark-text" style="padding:8px 0;font-family:monospace;color:#6d28d9;">${bookingCode}</td></tr>
                 </table>
               </td>
             </tr>
@@ -1971,8 +1971,8 @@ export function buildBookingInvitationEmail(params: {
           <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin:32px 0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
               <td bgcolor="#fef3c7" class="dark-accent-bg dark-border" style="background:#fef3c7;border-radius:12px;padding:24px;border:2px dashed #f59e0b;">
-                <p class="dark-text" style="color:#92400e;font-size:14px;font-weight:bold;margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;">🎒 What to Bring</p>
-                <p class="dark-text-secondary" style="color:#78350f;font-size:14px;line-height:1.8;text-align:left;font-family:Arial,Helvetica,sans-serif;">✓ Comfortable sports attire<br>✓ Proper court shoes<br>✓ Water bottle<br>✓ Your A-game! 🔥</p>
+                <p class="dark-text" style="color:#92400e;font-size:14px;font-weight:bold;margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;"> What to Bring</p>
+                <p class="dark-text-secondary" style="color:#78350f;font-size:14px;line-height:1.8;text-align:left;font-family:Arial,Helvetica,sans-serif;"> Comfortable sports attire<br> Proper court shoes<br> Water bottle<br> Your A-game! </p>
               </td>
             </tr>
           </table>
@@ -1980,7 +1980,7 @@ export function buildBookingInvitationEmail(params: {
           <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="margin:40px 0 32px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
               <td bgcolor="#6d28d9" style="background:#6d28d9;border-radius:12px;box-shadow:0 4px 12px rgba(34,115,75,0.3);">
-                <a href="${buttonUrl}" style="display:block;color:#ffffff;text-decoration:none;padding:18px 40px;font-weight:bold;font-size:16px;font-family:Arial,Helvetica,sans-serif;">✅ View Booking Details</a>
+                <a href="${buttonUrl}" style="display:block;color:#ffffff;text-decoration:none;padding:18px 40px;font-weight:bold;font-size:16px;font-family:Arial,Helvetica,sans-serif;"> View Booking Details</a>
               </td>
             </tr>
           </table>
@@ -1989,7 +1989,7 @@ ${
     ? `<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin:32px 0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
               <td bgcolor="#e0f2fe" class="dark-accent-bg dark-border" style="background:#e0f2fe;border-radius:12px;padding:24px;border:1px solid #6d28d9;">
-                <p class="dark-text" style="color:#075985;font-size:14px;margin:0 0 12px;font-weight:bold;font-family:Arial,Helvetica,sans-serif;">🎁 New to Padel Mania?</p>
+                <p class="dark-text" style="color:#075985;font-size:14px;margin:0 0 12px;font-weight:bold;font-family:Arial,Helvetica,sans-serif;"> New to Padel Mania?</p>
                 <p class="dark-text-secondary" style="color:#0c4a6e;font-size:13px;margin:0;line-height:1.6;font-family:Arial,Helvetica,sans-serif;">Create a free account to book courts, earn loyalty points, and unlock exclusive benefits!</p>
                 <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="margin:16px 0 0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
                   <tr>
@@ -2069,7 +2069,7 @@ export function buildLoyaltyRedemptionEmail(params: {
       })
     : null;
 
-  const subject = `🎉 ${pointsRedeemed} Points Redeemed for ${amountFormatted} Gift Card!`;
+  const subject = ` ${pointsRedeemed} Points Redeemed for ${amountFormatted} Gift Card!`;
 
   const html = `<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -2105,7 +2105,7 @@ export function buildLoyaltyRedemptionEmail(params: {
       <table role="presentation" class="email-container dark-card" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,0.1);mso-table-lspace:0pt;mso-table-rspace:0pt;">
         <tr>
           <td style="background:#6d28d9;padding:36px 28px;text-align:center;">
-            <div style="font-size:48px;margin:0 0 12px;">🎊</div>
+            <div style="font-size:48px;margin:0 0 12px;"></div>
             <h1 style="margin:0;color:#ffffff;font-size:26px;font-weight:700;font-family:Arial,Helvetica,sans-serif;">Points Redeemed!</h1>
             <p style="margin:8px 0 0;color:#ede9fe;font-size:14px;font-family:Arial,Helvetica,sans-serif;">Your loyalty points have been converted to a gift card</p>
           </td>
@@ -2142,7 +2142,7 @@ export function buildLoyaltyRedemptionEmail(params: {
 
             <table cellpadding="0" cellspacing="0" border="0" role="presentation" align="center" style="margin:32px auto;mso-table-lspace:0pt;mso-table-rspace:0pt;">
               <tr><td style="background-color:#6d28d9;border-radius:8px;">
-                <a href="${process.env.APP_URL || "https://padelmania.co.ke"}/customer/loyalty" style="display:block;color:#ffffff;text-decoration:none;padding:14px 32px;font-weight:700;font-size:15px;font-family:Arial,Helvetica,sans-serif;">🏆 View My Loyalty Points</a>
+                <a href="${process.env.APP_URL || "https://padelmania.co.ke"}/customer/loyalty" style="display:block;color:#ffffff;text-decoration:none;padding:14px 32px;font-weight:700;font-size:15px;font-family:Arial,Helvetica,sans-serif;"> View My Loyalty Points</a>
               </td></tr>
             </table>
 
