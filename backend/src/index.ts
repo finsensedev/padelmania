@@ -17,7 +17,7 @@ const httpServer = createServer(app);
 export const wsManager = new WebSocketManager(httpServer);
 setIO(wsManager.getIO());
 
-const PORT = process.env.PORT || 8090;
+const PORT = process.env.PORT || 8070;
 const HOST = process.env.BACKEND_URL_HOST || "localhost";
 
 async function startServer() {
