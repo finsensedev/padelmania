@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useRef, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useFormik } from "formik";
@@ -29,6 +28,10 @@ const registerSchema = Yup.object({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password")], "Passwords must match")
     .required("Please confirm your password"),
+  acceptTerms: Yup.boolean().oneOf(
+    [true],
+    "You must accept the terms and conditions",
+  ),
 });
 
 function Register() {
@@ -51,6 +54,7 @@ function Register() {
       phone: "",
       password: "",
       confirmPassword: "",
+      acceptTerms: false,
     },
     validationSchema: registerSchema,
     onSubmit: async (values) => {
@@ -415,12 +419,26 @@ function Register() {
                   type="checkbox"
                   id="acceptTerms"
                   name="acceptTerms"
-                  readOnly
-                  onClick={() => {
-                    // Open modal to read terms; accepting there will mark acceptTerms and submit
-                    pushModal(<TermsAndConditionsModal formik={formik} />);
+                  checked={formik.values.acceptTerms}
+                  onChange={() => {
+                    if (!formik.values.acceptTerms) {
+                      pushModal(
+                        <TermsAndConditionsModal
+                          onAccept={() =>
+                            formik.setFieldValue("acceptTerms", true)
+                          }
+                        />,
+                      );
+                    } else {
+                      formik.setFieldValue("acceptTerms", false);
+                    }
                   }}
-                  className={`h-4 w-4 text-primary focus:ring-primary border-border rounded mt-0.5 sm:mt-1 cursor-pointer touch-manipulation`}
+                  onBlur={() => formik.setFieldTouched("acceptTerms", true)}
+                  className={`h-4 w-4 text-primary focus:ring-primary border-border rounded mt-0.5 sm:mt-1 cursor-pointer touch-manipulation ${
+                    formik.touched.acceptTerms && formik.errors.acceptTerms
+                      ? "border-destructive"
+                      : ""
+                  }`}
                 />
                 <div className="flex-1 min-w-0">
                   <label
@@ -434,7 +452,7 @@ function Register() {
                   </label>
                   <div className="flex items-center gap-2 mt-1">
                     <p className="text-xs text-muted-foreground/80">
-                      Click above to read our terms, or{" "}
+                      Click the checkbox to review, or{" "}
                       <button
                         type="button"
                         onClick={() =>
@@ -449,6 +467,11 @@ function Register() {
                   </div>
                 </div>
               </div>
+              {formik.touched.acceptTerms && formik.errors.acceptTerms && (
+                <p className="text-xs text-destructive">
+                  {formik.errors.acceptTerms as string}
+                </p>
+              )}
             </div>
 
             {submitError && (
@@ -456,6 +479,40 @@ function Register() {
                 {submitError}
               </div>
             )}
+
+            <Button
+              type="submit"
+              disabled={formik.isSubmitting}
+              className="w-full h-10 sm:h-11 touch-manipulation text-sm"
+            >
+              {formik.isSubmitting ? (
+                <div className="flex items-center justify-center">
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Creating Account...
+                </div>
+              ) : (
+                "Create Account"
+              )}
+            </Button>
 
             <div className="text-center">
               <p className="text-xs sm:text-sm text-muted-foreground">
@@ -490,11 +547,10 @@ function Register() {
 
 export default Register;
 
-const TermsAndConditionsModal = ({ formik }: { formik: any }) => {
+const TermsAndConditionsModal = ({ onAccept }: { onAccept: () => void }) => {
   const { popModal } = useModal();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const handleScroll = () => {
     const element = scrollRef.current;
@@ -513,21 +569,9 @@ const TermsAndConditionsModal = ({ formik }: { formik: any }) => {
     }
   }, []);
 
-  const handleAccept = async () => {
-    try {
-      setIsButtonClicked(true);
-      await new Promise((resolve) => setTimeout(resolve, 100));
-
-      //   await formik.validateForm();
-      await formik.submitForm();
-
-      popModal();
-    } catch (error) {
-      console.error("Error during form submission:", error);
-      popModal();
-    } finally {
-      setIsButtonClicked(false);
-    }
+  const handleAccept = () => {
+    onAccept();
+    popModal();
   };
 
   const handleCancel = () => {
@@ -587,7 +631,7 @@ const TermsAndConditionsModal = ({ formik }: { formik: any }) => {
         {!hasScrolledToBottom && (
           <div className="bg-primary/10 border border-primary/30 rounded-md p-2 sm:p-3 mb-3 sm:mb-4">
             <p className="text-xs sm:text-sm text-foreground font-medium text-center leading-tight">
-              Please scroll to the bottom to enable Accept & Create Account
+              Please scroll to the bottom to accept the terms
             </p>
           </div>
         )}
@@ -597,48 +641,15 @@ const TermsAndConditionsModal = ({ formik }: { formik: any }) => {
             variant="outline"
             onClick={handleCancel}
             className="w-full h-10 sm:h-11 touch-manipulation text-sm"
-            disabled={formik.isSubmitting || isButtonClicked}
           >
             Cancel
           </Button>
           <Button
             onClick={handleAccept}
-            disabled={
-              !hasScrolledToBottom || formik.isSubmitting || isButtonClicked
-            }
+            disabled={!hasScrolledToBottom}
             className="w-full h-10 sm:h-11 relative transition-all duration-200 hover:shadow-lg disabled:shadow-none touch-manipulation text-sm"
           >
-            {formik.isSubmitting || isButtonClicked ? (
-              <div className="flex items-center justify-center">
-                <svg
-                  className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-                <span>
-                  {isButtonClicked && !formik.isSubmitting
-                    ? "Processing..."
-                    : "Creating Account..."}
-                </span>
-              </div>
-            ) : (
-              "Accept & Create Account"
-            )}
+            Accept Terms
           </Button>
         </div>
       </CardContent>
