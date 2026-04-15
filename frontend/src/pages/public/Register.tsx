@@ -584,10 +584,10 @@ const TermsAndConditionsModal = ({ onAccept }: { onAccept: () => void }) => {
 
   return (
     <div
-      className="w-full bg-background max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden mx-1 sm:mx-4 my-1 sm:my-4 rounded-xl shadow-2xl border border-border"
+      className="w-full bg-background max-w-4xl flex flex-col max-h-[90dvh] mx-1 sm:mx-4 my-2 sm:my-4 rounded-xl shadow-2xl border border-border"
       onClick={(e) => e.stopPropagation()}
     >
-      <CardHeader className="px-3 sm:px-6 py-3 sm:py-5 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
+      <CardHeader className="flex-shrink-0 px-3 sm:px-6 py-3 sm:py-5 border-b border-border bg-gradient-to-r from-primary/5 to-accent/5">
         <div className="flex items-start sm:items-center justify-between gap-2">
           <div className="flex items-start sm:items-center gap-2 sm:gap-3 flex-1">
             <div className="p-1.5 sm:p-2 bg-primary/10 rounded-lg flex-shrink-0">
@@ -615,23 +615,23 @@ const TermsAndConditionsModal = ({ onAccept }: { onAccept: () => void }) => {
         </div>
       </CardHeader>
 
-      <CardContent className="px-3 sm:px-6 pb-3 sm:pb-6">
-        <div
-          ref={scrollRef}
-          className="max-h-60 sm:max-h-72 lg:max-h-80 overflow-y-auto border border-muted/50 rounded-lg p-3 sm:p-5 mb-3 sm:mb-4 bg-muted/20 touch-manipulation"
-          style={{
-            WebkitOverflowScrolling: "touch",
-            scrollbarWidth: "thin",
-          }}
-          onScroll={handleScroll}
-        >
-          <TermsContent compact />
-        </div>
+      <div
+        ref={scrollRef}
+        className="flex-1 min-h-0 overflow-y-auto px-3 sm:px-6 py-3 sm:py-5 bg-muted/10"
+        style={{
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "thin",
+        }}
+        onScroll={handleScroll}
+      >
+        <TermsContent compact />
+      </div>
 
+      <div className="flex-shrink-0 px-3 sm:px-6 py-3 sm:py-4 border-t border-border bg-background">
         {!hasScrolledToBottom && (
-          <div className="bg-primary/10 border border-primary/30 rounded-md p-2 sm:p-3 mb-3 sm:mb-4">
+          <div className="bg-primary/10 border border-primary/30 rounded-md p-2 sm:p-3 mb-3">
             <p className="text-xs sm:text-sm text-foreground font-medium text-center leading-tight">
-              Please scroll to the bottom to accept the terms
+              Scroll to the bottom to accept the terms
             </p>
           </div>
         )}
@@ -652,7 +652,7 @@ const TermsAndConditionsModal = ({ onAccept }: { onAccept: () => void }) => {
             Accept Terms
           </Button>
         </div>
-      </CardContent>
+      </div>
     </div>
   );
 };
