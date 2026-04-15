@@ -14,7 +14,7 @@ export default function CustomerRoutes() {
   }
 
   const whatsappSupportUrl =
-    "https://wa.me/254113666444?text=Hello%20Padel%20Mania%2C%20I%20need%20assistance";
+    "https://wa.me/254742754354?text=Hello%20Padel%20Mania%2C%20I%20need%20assistance";
 
   const handleWhatsAppClick = () => {
     window.open(whatsappSupportUrl, "_blank", "noopener,noreferrer");

@@ -2396,7 +2396,7 @@ const ConfirmedAndThanksModal = ({
 
   const handleContactSupport = () => {
     const whatsappSupportLink =
-      "https://wa.me/254113666444?text=Hello%20Padel%20Mania%2C%20I%20need%20assistance";
+      "https://wa.me/254742754354?text=Hello%20Padel%20Mania%2C%20I%20need%20assistance";
     window.open(whatsappSupportLink, "_blank", "noopener,noreferrer");
   };
 
