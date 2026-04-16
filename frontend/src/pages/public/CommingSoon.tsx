@@ -482,7 +482,7 @@ function CommingSoon() {
 
         <div className="group relative">
           <a
-            href="tel:+254000000000"
+            href="tel:+254742754354"
             aria-label="Call us"
             className="flex items-center justify-center w-11 h-11 bg-primary text-primary-foreground hover:scale-110 transition-transform shadow-lg shadow-black/40"
           >
