@@ -520,7 +520,7 @@ export class AuthController {
           lastName,
           phone,
           role: "CUSTOMER",
-          registrationNumber: generateRegistrationNumber("TP"),
+          registrationNumber: generateRegistrationNumber("PM"),
         },
         select: {
           id: true,
@@ -640,7 +640,7 @@ export class AuthController {
           const random = Math.floor(Math.random() * 10000)
             .toString()
             .padStart(4, "0");
-          const cardNumber = `TP${timestamp}${random}`;
+          const cardNumber = `PM${timestamp}${random}`;
 
           await prisma.membershipCard.create({
             data: {

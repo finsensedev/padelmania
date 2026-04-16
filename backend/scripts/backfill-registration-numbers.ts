@@ -13,19 +13,19 @@ async function main() {
   const needsUpdate = users.filter((u) => {
     const rn = u.registrationNumber;
     if (!rn) return true;
-    // Accept only TP-<7 digits>
-    return !/^TP-\d{6,7}$/u.test(rn);
+    // Accept only PM-<7 digits>
+    return !/^PM-\d{6,7}$/u.test(rn);
   });
 
   console.log(
-    `Found ${needsUpdate.length} users to normalize registration numbers`
+    `Found ${needsUpdate.length} users to normalize registration numbers`,
   );
 
   let updated = 0;
   for (const u of needsUpdate) {
     let attempts = 0;
     while (attempts < 5) {
-      const reg = generateRegistrationNumber("TP");
+      const reg = generateRegistrationNumber("PM");
       try {
         await prisma.user.update({
           where: { id: u.id },

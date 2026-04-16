@@ -181,7 +181,7 @@ export default function ManagerSidebar() {
       {/* Brand Header */}
       <div className="p-4 border-b border-sidebar-border flex items-center gap-3 bg-sidebar/50">
         <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-bold text-primary-foreground shadow-sm">
-          TP
+          PM
         </div>
         <div>
           <p className="font-semibold text-sm text-sidebar-foreground">

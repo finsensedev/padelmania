@@ -77,7 +77,7 @@ export default function AdminHeader({
       enabled: canViewAdminMetrics,
       refetchInterval: canViewAdminMetrics ? 60000 : false,
       staleTime: 30000,
-    }
+    },
   );
 
   // Fetch recent activities for notifications (only if allowed)
@@ -87,7 +87,7 @@ export default function AdminHeader({
     {
       enabled: canViewAdminMetrics,
       refetchInterval: canViewAdminMetrics ? 30000 : false,
-    }
+    },
   );
 
   // Convert activities to notifications
@@ -105,11 +105,11 @@ export default function AdminHeader({
               activity.type === "payment"
                 ? "high"
                 : activity.type === "booking"
-                ? "medium"
-                : "low",
+                  ? "medium"
+                  : "low",
           }))
         : [],
-    [activities]
+    [activities],
   );
 
   const [notificationReadStatus, setNotificationReadStatus] = useState<
@@ -140,12 +140,12 @@ export default function AdminHeader({
               ? Math.round(
                   ((stats.bookings.today - stats.bookings.yesterday) /
                     (stats.bookings.yesterday || 1)) *
-                    100
+                    100,
                 )
               : -Math.round(
                   ((stats.bookings.yesterday - stats.bookings.today) /
                     (stats.bookings.yesterday || 1)) *
-                    100
+                    100,
                 ),
           icon: <Calendar className="w-4 h-4" />,
           color: "text-primary",
@@ -221,10 +221,13 @@ export default function AdminHeader({
 
   const markAllAsRead = async () => {
     // optimistic
-    const allRead = notifications.reduce((acc, notif) => {
-      acc[notif.id] = true;
-      return acc;
-    }, {} as Record<string, boolean>);
+    const allRead = notifications.reduce(
+      (acc, notif) => {
+        acc[notif.id] = true;
+        return acc;
+      },
+      {} as Record<string, boolean>,
+    );
     setNotificationReadStatus(allRead);
     try {
       await dashboardService.markAllActivitiesRead();
@@ -235,7 +238,7 @@ export default function AdminHeader({
   };
 
   const unreadCount = notifications.filter(
-    (n) => !notificationReadStatus[n.id]
+    (n) => !notificationReadStatus[n.id],
   ).length;
 
   const getNotificationIcon = (type: string) => {
@@ -341,7 +344,7 @@ export default function AdminHeader({
               <div className="flex items-center gap-2 md:gap-3 min-w-0">
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
                   <span className="text-primary-foreground font-bold text-base md:text-lg">
-                    TP
+                    PM
                   </span>
                 </div>
                 <div className="hidden sm:block min-w-0">
@@ -400,14 +403,14 @@ export default function AdminHeader({
                               onClick={() => {
                                 markNotificationAsRead(
                                   notification.id,
-                                  notification.type
+                                  notification.type,
                                 );
                               }}
                             >
                               <div className="flex items-start gap-2 sm:gap-3">
                                 <div
                                   className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${getPriorityColor(
-                                    notification.priority
+                                    notification.priority,
                                   )}`}
                                 >
                                   {getNotificationIcon(notification.type)}
@@ -433,7 +436,7 @@ export default function AdminHeader({
                                       notification.timestamp,
                                       {
                                         addSuffix: true,
-                                      }
+                                      },
                                     )}
                                   </p>
                                 </div>

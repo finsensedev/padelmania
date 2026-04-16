@@ -59,8 +59,8 @@ export function paginate(page: number = 1, limit: number = 10) {
   return { skip, take: limit };
 }
 
-// Confidential Registration Number (e.g., TP-1234567)
-export function generateRegistrationNumber(prefix: string = "TP"): string {
+// Confidential Registration Number (e.g., PM-1234567)
+export function generateRegistrationNumber(prefix: string = "PM"): string {
   // Generate a 7-digit numeric code to keep it clean and readable
   const num = Math.floor(1000000 + Math.random() * 9000000); // 1000000 - 9999999
   return `${prefix}-${num}`;

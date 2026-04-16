@@ -206,8 +206,8 @@ router.get(
         const existingNot = Array.isArray((where as any).NOT)
           ? (where as any).NOT
           : (where as any).NOT
-          ? [(where as any).NOT]
-          : [];
+            ? [(where as any).NOT]
+            : [];
         (where as any).NOT = [
           ...existingNot,
           { role: { in: ["ADMIN", "SUPER_ADMIN"] } },
@@ -217,8 +217,8 @@ router.get(
         const existingNot = Array.isArray((where as any).NOT)
           ? (where as any).NOT
           : (where as any).NOT
-          ? [(where as any).NOT]
-          : [];
+            ? [(where as any).NOT]
+            : [];
         (where as any).NOT = [...existingNot, { role: "SUPER_ADMIN" }];
       }
 
@@ -278,7 +278,7 @@ router.get(
       });
 
       const paymentsMap = new Map(
-        paymentsData.map((p) => [p.userId, p._sum.amount || 0])
+        paymentsData.map((p) => [p.userId, p._sum.amount || 0]),
       );
 
       const usersWithMetrics = users.map((user) => ({
@@ -308,7 +308,7 @@ router.get(
       console.error("Error listing users:", error);
       return res.status(500).json({ message: "Failed to fetch users" });
     }
-  }
+  },
 );
 
 router.get(
@@ -323,7 +323,7 @@ router.get(
       console.error("Error fetching user stats:", error);
       return res.status(500).json({ message: "Failed to fetch user stats" });
     }
-  }
+  },
 );
 
 router.post(
@@ -369,7 +369,7 @@ router.post(
           role: (role as any) || "CUSTOMER",
           isActive: typeof isActive === "boolean" ? isActive : true,
           emailVerified: true, // Admin-created users are auto-verified
-          registrationNumber: generateRegistrationNumber("TP"),
+          registrationNumber: generateRegistrationNumber("PM"),
         },
         select: {
           id: true,
@@ -388,9 +388,8 @@ router.post(
       });
 
       // Award registration bonus points for new customers
-      const { getActiveLoyaltyConfig } = await import(
-        "../services/loyalty-config.service"
-      );
+      const { getActiveLoyaltyConfig } =
+        await import("../services/loyalty-config.service");
       const loyaltyConfig = await getActiveLoyaltyConfig();
       const registrationPoints = loyaltyConfig.registrationBonusPoints;
 
@@ -434,7 +433,7 @@ router.post(
       console.error("Error creating user:", error);
       return res.status(500).json({ message: "Failed to create user" });
     }
-  }
+  },
 );
 
 router.patch(
@@ -501,7 +500,7 @@ router.patch(
       console.error("Error updating user:", error);
       return res.status(500).json({ message: "Failed to update user" });
     }
-  }
+  },
 );
 
 router.delete(
@@ -537,7 +536,7 @@ router.delete(
       console.error("Error deleting user:", error);
       return res.status(500).json({ message: "Failed to delete user" });
     }
-  }
+  },
 );
 
 router.post(
@@ -582,7 +581,7 @@ router.post(
       console.error("Error deactivating user:", error);
       return res.status(500).json({ message: "Failed to update user status" });
     }
-  }
+  },
 );
 
 router.post(
@@ -666,14 +665,14 @@ router.post(
                 tier: value as any,
                 validFrom: new Date(),
                 validUntil: new Date(
-                  new Date().setFullYear(new Date().getFullYear() + 1)
+                  new Date().setFullYear(new Date().getFullYear() + 1),
                 ),
                 isActive: true,
                 updatedAt: new Date(),
               },
               update: { tier: value as any, isActive: true },
-            })
-          )
+            }),
+          ),
         );
         updatedCount = userIds.length;
       } else if (action === "removeMembership") {
@@ -690,7 +689,7 @@ router.post(
       console.error("Error in bulk update:", error);
       return res.status(500).json({ message: "Bulk update failed" });
     }
-  }
+  },
 );
 
 router.get(
@@ -710,8 +709,8 @@ router.get(
         const existingNot = Array.isArray((where as any).NOT)
           ? (where as any).NOT
           : (where as any).NOT
-          ? [(where as any).NOT]
-          : [];
+            ? [(where as any).NOT]
+            : [];
         (where as any).NOT = [
           ...existingNot,
           { role: { in: ["ADMIN", "SUPER_ADMIN"] } },
@@ -721,8 +720,8 @@ router.get(
         const existingNot = Array.isArray((where as any).NOT)
           ? (where as any).NOT
           : (where as any).NOT
-          ? [(where as any).NOT]
-          : [];
+            ? [(where as any).NOT]
+            : [];
         (where as any).NOT = [...existingNot, { role: "SUPER_ADMIN" }];
       }
 
@@ -778,7 +777,7 @@ router.get(
               }
               return s;
             })
-            .join(",")
+            .join(","),
         )
         .join("\n");
 
@@ -790,14 +789,14 @@ router.get(
       res.setHeader("Content-Type", "text/csv");
       res.setHeader(
         "Content-Disposition",
-        `attachment; filename=users-${Date.now()}.csv`
+        `attachment; filename=users-${Date.now()}.csv`,
       );
       return res.status(200).send(csv);
     } catch (error) {
       console.error("Error exporting users:", error);
       return res.status(500).json({ message: "Failed to export users" });
     }
-  }
+  },
 );
 
 router.get("/me", authenticateToken, async (req, res) => {
@@ -990,7 +989,7 @@ router.post(
       console.error("Error resetting password:", error);
       return res.status(500).json({ message: "Failed to reset password" });
     }
-  }
+  },
 );
 
 router.post(
@@ -1035,7 +1034,7 @@ router.post(
         .status(500)
         .json({ message: "Failed to send verification email" });
     }
-  }
+  },
 );
 
 router.get(
@@ -1104,7 +1103,7 @@ router.get(
       console.error("Error getting user details:", error);
       return res.status(500).json({ message: "Failed to fetch user details" });
     }
-  }
+  },
 );
 
 router.get(
@@ -1141,7 +1140,7 @@ router.get(
       console.error("Error getting user:", error);
       return res.status(500).json({ message: "Failed to fetch user" });
     }
-  }
+  },
 );
 
 export default router;

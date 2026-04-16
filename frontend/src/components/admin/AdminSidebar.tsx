@@ -56,7 +56,7 @@ const AdminSidebar = () => {
   const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
   const { theme, toggle: toggleTheme } = useTheme();
   const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" && window.innerWidth < 768
+    typeof window !== "undefined" && window.innerWidth < 768,
   );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -74,7 +74,7 @@ const AdminSidebar = () => {
       enabled: canViewDashboardStats,
       refetchInterval: canViewDashboardStats ? 60000 : false,
       staleTime: 30000,
-    }
+    },
   );
 
   // Calculate notification count from pending items
@@ -269,7 +269,7 @@ const AdminSidebar = () => {
         path: "/admin/settings",
       },
     ],
-    [stats, has]
+    [stats, has],
   );
 
   const finalMenuItems = useMemo<MenuItem[]>(() => {
@@ -286,7 +286,7 @@ const AdminSidebar = () => {
 
     if (role === "ADMIN") {
       return items.filter(
-        (item) => !ADMIN_RESTRICTED_MENU_IDS.includes(item.id)
+        (item) => !ADMIN_RESTRICTED_MENU_IDS.includes(item.id),
       );
     }
 
@@ -328,7 +328,7 @@ const AdminSidebar = () => {
     setExpandedMenus((prev) =>
       prev.includes(menuId)
         ? prev.filter((id) => id !== menuId)
-        : [...prev, menuId]
+        : [...prev, menuId],
     );
   };
 
@@ -340,7 +340,7 @@ const AdminSidebar = () => {
     finalMenuItems.forEach((item) => {
       if (item.subItems) {
         const hasActiveSubItem = item.subItems.some((sub) =>
-          currentPath.startsWith(sub.path)
+          currentPath.startsWith(sub.path),
         );
         if (hasActiveSubItem) {
           expandedIds.push(item.id);
@@ -637,7 +637,7 @@ const AdminSidebar = () => {
             >
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-sm">
                 <span className="text-primary-foreground font-bold text-lg md:text-xl">
-                  TP
+                  PM
                 </span>
               </div>
               {(!collapsed || isMobile) && (
@@ -769,7 +769,7 @@ const AdminSidebar = () => {
             {finalMenuItems.map((item, index) => {
               // Check if any submenu item is active (exact match)
               const hasActiveSubItem = item.subItems?.some(
-                (subItem) => location.pathname === subItem.path
+                (subItem) => location.pathname === subItem.path,
               );
               const isParentActive =
                 hasActiveSubItem ||

@@ -64,7 +64,7 @@ async function createMissingMembershipCards() {
     const random = Math.floor(Math.random() * 10000)
       .toString()
       .padStart(4, "0");
-    const cardNumber = `TP${timestamp}${random}`;
+    const cardNumber = `PM${timestamp}${random}`;
 
     if (isExecuteMode) {
       // ACTUAL CREATION
