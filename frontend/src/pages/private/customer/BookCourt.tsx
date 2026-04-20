@@ -2363,14 +2363,14 @@ const ConfirmedAndThanksModal = ({
         return (
           `Hi ${userName}! 👋\n\n` +
           `Padel time! I just booked ${court} at Padel Mania.\n\n` +
-          `📅 Date: ${day}\n` +
-          `⏰ Time: ${time}` +
+          `Date: ${day}\n` +
+          `Time: ${time}` +
           (booking.bookingCode
-            ? `\n🎫 Booking code: ${booking.bookingCode}`
+            ? `\nBooking code: ${booking.bookingCode}`
             : "") +
-          `\n\n📍 Location: Padel Mania, Nairobi\n` +
+          `\n\nLocation: Padel Mania, Nairobi\n` +
           `${locationLink}\n\n` +
-          `Come join me for an epic match! 🏓`
+          `Come join me for an epic match!`
         );
       } catch {
         // fall through to generic
@@ -2494,7 +2494,7 @@ const ConfirmedAndThanksModal = ({
         {/* Social Actions */}
         <div className="space-y-3">
           <p className="text-sm text-muted-foreground text-center font-medium">
-            Share the excitement 🎾
+            Share the excitement
           </p>
           <div className="grid grid-cols-1 gap-3">
             <Button

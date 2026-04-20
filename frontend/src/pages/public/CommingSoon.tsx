@@ -4,10 +4,10 @@ import { GiTennisBall, GiTennisRacket } from "react-icons/gi";
 import PricingDisplay from "src/components/shared/PricingDisplay";
 
 // const IMAGES = [
-//   "/images/ultimate-padel-vibe.jpeg",
-//   "/images/club-coming-soon.jpeg",
-//   "/images/from-court-to-cafe.jpeg",
-//   "/images/padel-club-count-down.jpeg",
+//   "/images/ultimate-padel-vibe.png",
+//   "/images/club-coming-soon.png",
+//   "/images/from-court-to-cafe.png",
+//   "/images/padel-club-count-down.png",
 // ];
 
 function CommingSoon() {
@@ -178,7 +178,7 @@ function CommingSoon() {
           <div className="group relative overflow-hidden bg-card border border-border/10 hover:border-primary/40 transition-colors duration-500">
             <div className="relative overflow-hidden h-64 sm:h-80">
               <img
-                src="/images/ultimate-padel-vibe.jpeg"
+                src="/images/ultimate-padel-vibe.png"
                 alt="Court A"
                 className="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
               />
@@ -221,7 +221,7 @@ function CommingSoon() {
           <div className="group relative overflow-hidden bg-card border border-border/10 hover:border-primary/40 transition-colors duration-500">
             <div className="relative overflow-hidden h-64 sm:h-80">
               <img
-                src="/images/club-coming-soon.jpeg"
+                src="/images/club-coming-soon.png"
                 alt="Court B"
                 className="w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
               />
@@ -281,7 +281,7 @@ function CommingSoon() {
       {/* FULL-WIDTH IMAGE BREAK */}
       <div className="relative h-56 sm:h-72 overflow-hidden">
         <img
-          src="/images/from-court-to-cafe.jpeg"
+          src="/images/from-court-to-cafe.png"
           alt=""
           className="w-full h-full object-cover"
         />
